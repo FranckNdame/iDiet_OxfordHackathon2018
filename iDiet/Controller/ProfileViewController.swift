@@ -41,6 +41,10 @@ class ProfileViewController: UIViewController {
         navigationUsernameLabel.alpha = 0
         guard let user = Auth.auth().currentUser else {return}
         ref = Database.database().reference().child("Users").child(user.uid)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         ObserveStats()
     }
     
@@ -51,6 +55,8 @@ class ProfileViewController: UIViewController {
             self.height = value?["Height"] as! String
             self.weight = value?["Weight"] as! String
             self.target = value?["Target"] as! String
+            self.navigationUsernameLabel.text = value?["Name"] as? String
+            self.usernameLabel.text = value?["Name"] as? String
             self.weightLabel.text = "\(self.weight)kg"
             self.heightLabel.text = "\(self.height)cm"
             let heightstart = Int(self.height) ?? 0
@@ -58,7 +64,8 @@ class ProfileViewController: UIViewController {
             let heightsquared = Double(heightMeters) * Double(heightMeters)
             let weightstart = Int(self.weight) ?? 0
             self.bmi = Double(weightstart)/heightsquared
-            self.bmiLabel.text = "\(self.bmi)"
+            let rounded = Double(round(100*self.bmi)/100)
+            self.bmiLabel.text = "\(rounded)"
         })
     }
     
