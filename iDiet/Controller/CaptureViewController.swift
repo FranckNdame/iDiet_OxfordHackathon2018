@@ -75,22 +75,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         return cb
     }()
     
-    let exitView : UIView = {
-        let ev = UIView()
-        ev.backgroundColor = UIColor.darkGray
-        ev.layer.cornerRadius = 20
-        ev.clipsToBounds = true
-        return ev
-    }()
-    
-    let exitButton : UIButton = {
-        let eb = UIButton()
-        eb.setTitle("X", for: .normal)
-        eb.backgroundColor = .clear
-        eb.tintColor = .white
-        eb.addTarget(self, action: #selector(closeView), for: .touchUpInside)
-        return eb
-    }()
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        
@@ -168,11 +152,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     // MARK: - Functions
     
     func setupView() {
-        self.view.addSubview(exitView)
-        exitView.anchor(top: self.view.topAnchor, left: nil, right: self.view.rightAnchor, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 16, paddingBottom: 0, width: 40, height: 40)
-        
-        exitView.addSubview(exitButton)
-        exitButton.anchor(top: exitView.topAnchor, left: exitView.leftAnchor, right: exitView.rightAnchor, bottom: exitView.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
         
         self.view.addSubview(previewView)
         previewView.anchor(top: nil, left: nil, right: nil, bottom: self.view.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 16, width: 343, height: 462)
@@ -195,10 +174,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         cancelButton.anchor(top: addButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         cancelButton.centerXAnchor.constraint(equalTo: previewView.centerXAnchor).isActive = true
         
-    }
-    
-    @objc func closeView() {
-        dismiss(animated: true, completion: nil)
     }
     
     @objc func cancelItem() {
