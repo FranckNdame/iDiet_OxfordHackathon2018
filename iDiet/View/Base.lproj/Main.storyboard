@@ -33,7 +33,7 @@
                                     <segue destination="V57-7K-pUD" kind="embed" id="dzr-Qa-oie"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5D-vi-Fk3" userLabel="Navigation View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5D-vi-Fk3" userLabel="Navigation View" customClass="NavigationView" customModule="iDiet" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFx-rY-hB0" userLabel="Scan Button view">
@@ -107,7 +107,7 @@
                                             <constraint firstItem="vm5-vt-kYz" firstAttribute="centerY" secondItem="jV0-3i-a91" secondAttribute="centerY" constant="7" id="xrW-qg-VaO"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-Pv-yCy">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-Pv-yCy" userLabel="Indicator">
                                         <rect key="frame" x="164.5" y="633" width="46" height="4"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -124,10 +124,29 @@
                                     <constraint firstItem="jV0-3i-a91" firstAttribute="width" secondItem="c3E-LS-pce" secondAttribute="width" id="Nb8-Of-pz5"/>
                                     <constraint firstItem="c3E-LS-pce" firstAttribute="centerX" secondItem="x5D-vi-Fk3" secondAttribute="centerX" multiplier="1:4.8" id="Uwz-fJ-9vP"/>
                                     <constraint firstItem="jV0-3i-a91" firstAttribute="top" secondItem="c3E-LS-pce" secondAttribute="top" id="bvv-uI-CGt"/>
+                                    <constraint firstAttribute="bottom" secondItem="c3E-LS-pce" secondAttribute="bottom" constant="34" id="cam-Ql-wwe"/>
                                     <constraint firstItem="BFx-rY-hB0" firstAttribute="centerX" secondItem="x5D-vi-Fk3" secondAttribute="centerX" id="kgr-tk-An7"/>
                                     <constraint firstItem="sQo-Pv-yCy" firstAttribute="centerX" secondItem="x5D-vi-Fk3" secondAttribute="centerX" id="l0V-L3-uRc"/>
-                                    <constraint firstAttribute="bottom" secondItem="c3E-LS-pce" secondAttribute="bottom" constant="34" id="pzO-cI-brT"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="colorView" destination="TMs-qC-1xL" id="UQp-3c-H0l"/>
+                                    <outlet property="indicator" destination="sQo-Pv-yCy" id="8ql-J1-yLK"/>
+                                    <outlet property="intakeIconGrayView" destination="vm5-vt-kYz" id="Vh2-6y-OKY"/>
+                                    <outlet property="intakeIconHorizontalConstraint" destination="4W9-ld-tkK" id="312-nU-Rh6"/>
+                                    <outlet property="intakeIconView" destination="jV0-3i-a91" id="h82-f6-F4T"/>
+                                    <outlet property="intakeIconWhiteView" destination="HRw-KU-vqp" id="z4G-1s-2H6"/>
+                                    <outlet property="profileIconBottomConstraint" destination="cam-Ql-wwe" id="HL6-vp-UQa"/>
+                                    <outlet property="profileIconGrayView" destination="Qpd-de-bsQ" id="wLs-2k-4DI"/>
+                                    <outlet property="profileIconHorizontalConstraint" destination="Uwz-fJ-9vP" id="SEm-Xb-DQW"/>
+                                    <outlet property="profileIconView" destination="c3E-LS-pce" id="oFh-lT-OrG"/>
+                                    <outlet property="profileIconWhiteView" destination="F29-TQ-yLC" id="ocq-Rg-aoK"/>
+                                    <outlet property="profileIconWidthConstraint" destination="UAl-3c-wA2" id="0sx-Sz-sZr"/>
+                                    <outlet property="scanButtonBottomConstraint" destination="8q7-7y-I8r" id="2Ga-QE-HlR"/>
+                                    <outlet property="scanButtonGrayView" destination="unX-dT-RpI" id="7tR-fD-yCh"/>
+                                    <outlet property="scanButtonView" destination="BFx-rY-hB0" id="CzC-9m-QJ5"/>
+                                    <outlet property="scanButtonWhiteView" destination="Ssq-rk-SXY" id="lf3-Cb-DZZ"/>
+                                    <outlet property="scanButtonWidthConstraint" destination="MLM-ir-gcn" id="koy-3D-4SR"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.89578045685279184" green="0.89578045685279184" blue="0.89578045685279184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B3F346A21A99AA400F62253 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346921A99AA400F62253 /* User.swift */; };
+		5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346B21A99CD900F62253 /* NavigationView.swift */; };
+		5B3F346E21A99CED00F62253 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */; };
 		9CC7DD14706767D8C60D1394 /* Pods_iDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4188EE018A127CCF8A1FD6BA /* Pods_iDiet.framework */; };
 		E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6B21A9778B0017D8B4 /* AppDelegate.swift */; };
 		E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6D21A9778B0017D8B4 /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		4188EE018A127CCF8A1FD6BA /* Pods_iDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDiet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC6C74603F3D96144E69A70 /* Pods-iDietTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDietTests/Pods-iDietTests.release.xcconfig"; sourceTree = "<group>"; };
 		5B3F346921A99AA400F62253 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5B3F346B21A99CD900F62253 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
 		644DF95E23F4D546FC610AEB /* Pods-iDietUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDietUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		939C87874E50CE89C6C7D9DA /* Pods-iDietUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 		5B3F346821A99A4D00F62253 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				5B3F346B21A99CD900F62253 /* NavigationView.swift */,
+				5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -444,9 +450,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */,
+				5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */,
 				E098C2CC21A9904E00ECDE40 /* CaptureViewController.swift in Sources */,
 				E098C2C821A9856000ECDE40 /* RegisterViewController.swift in Sources */,
 				E098C2C621A97B8000ECDE40 /* Anchor Extensions.swift in Sources */,
+				5B3F346E21A99CED00F62253 /* NavigationViewAnimation.swift in Sources */,
 				5B3F346A21A99AA400F62253 /* User.swift in Sources */,
 				E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */,
 				E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */,
