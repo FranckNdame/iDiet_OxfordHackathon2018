@@ -11,6 +11,12 @@ import Firebase
 
 class ProfileViewController: UIViewController {
     
+    var ref: DatabaseReference!
+    var height = ""
+    var weight = ""
+    var target = ""
+    var bmi = 0.0
+    
     // MARK: - IBOUTLETS
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -33,7 +39,33 @@ class ProfileViewController: UIViewController {
         backgroundView.layer.cornerRadius = 0
         backgroundView.layer.masksToBounds = true
         navigationUsernameLabel.alpha = 0
+        guard let user = Auth.auth().currentUser else {return}
+        ref = Database.database().reference().child("Users").child(user.uid)
+        ObserveStats()
     }
+    
+    func ObserveStats() {
+        ref.observe(.value, with: { snapshot in
+            
+            let value = snapshot.value as? NSDictionary
+            self.height = value?["Height"] as! String
+            self.weight = value?["Weight"] as! String
+            self.target = value?["Target"] as! String
+            self.weightLabel.text = "\(self.weight)kg"
+            self.heightLabel.text = "\(self.height)cm"
+            let heightstart = Int(self.height) ?? 0
+            print(heightstart)
+            let heightMeters = Double(heightstart) / 100
+            print(heightMeters)
+            let heightsquared = Double(heightMeters) * Double(heightMeters)
+            print(heightsquared)
+            let weightstart = Int(self.weight) ?? 0
+            print(weightstart)
+            self.bmi = Double(weightstart)/heightsquared
+            self.bmiLabel.text = "\(self.bmi)"
+        })
+    }
+    
     
     //MARK: - IBACTIONS
     @IBAction func handleLogoutButton(_ sender: UIButton) {

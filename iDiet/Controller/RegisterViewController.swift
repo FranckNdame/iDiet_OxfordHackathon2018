@@ -36,13 +36,19 @@ class RegisterViewController: UIViewController {
     
     let heightTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Password"
+        tf.placeholder = "Height"
         return tf
     }()
     
     let weightTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Password"
+        tf.placeholder = "Weight"
+        return tf
+    }()
+    
+    let CalorieTargerTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Maximum Calorie Target"
         return tf
     }()
     
@@ -89,8 +95,12 @@ class RegisterViewController: UIViewController {
         weightTextField.anchor(top: heightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         weightTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
+        self.view.addSubview(CalorieTargerTextField)
+        CalorieTargerTextField.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        CalorieTargerTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
         self.view.addSubview(RegisterButton)
-        RegisterButton.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        RegisterButton.anchor(top: CalorieTargerTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         RegisterButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         self.view.addSubview(LoginButton)
@@ -111,7 +121,7 @@ class RegisterViewController: UIViewController {
                 guard let user = authResult?.user else { return }
                 self.uid = user.uid
                 self.ref = Database.database().reference().child("Users").child(self.uid)
-                self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!])
+                self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!, "Target": self.CalorieTargerTextField.text!])
                 print("You have successfully registered!!")
                 self.dismiss(animated: true, completion: nil)
             } else {
