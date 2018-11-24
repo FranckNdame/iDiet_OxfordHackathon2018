@@ -18,6 +18,7 @@
 		E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098C2C121A9797500ECDE40 /* LoginViewController.swift */; };
 		E098C2C621A97B8000ECDE40 /* Anchor Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098C2C521A97B8000ECDE40 /* Anchor Extensions.swift */; };
 		E098C2C821A9856000ECDE40 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098C2C721A9856000ECDE40 /* RegisterViewController.swift */; };
+		E098C2CA21A98A9100ECDE40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E098C2C921A98A9100ECDE40 /* GoogleService-Info.plist */; };
 		F85B1AEAC585779978F148A7 /* Pods_iDietUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */; };
 		FAA9CE689D89DF61679E9D4A /* Pods_iDietTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DECEE2DEA73A27EFBFFE8308 /* Pods_iDietTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		E098C2C121A9797500ECDE40 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E098C2C521A97B8000ECDE40 /* Anchor Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anchor Extensions.swift"; sourceTree = "<group>"; };
 		E098C2C721A9856000ECDE40 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E098C2C921A98A9100ECDE40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC544FED9E170D085844BBD8 /* Pods-iDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDiet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDiet/Pods-iDiet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				E05B2C7421A9778C0017D8B4 /* LaunchScreen.storyboard */,
 				E05B2C7721A9778C0017D8B4 /* Info.plist */,
 				E098C2C121A9797500ECDE40 /* LoginViewController.swift */,
+				E098C2C921A98A9100ECDE40 /* GoogleService-Info.plist */,
 				E098C2C721A9856000ECDE40 /* RegisterViewController.swift */,
 			);
 			path = iDiet;
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E05B2C7621A9778C0017D8B4 /* LaunchScreen.storyboard in Resources */,
+				E098C2CA21A98A9100ECDE40 /* GoogleService-Info.plist in Resources */,
 				E05B2C7321A9778C0017D8B4 /* Assets.xcassets in Resources */,
 				E05B2C7121A9778B0017D8B4 /* Main.storyboard in Resources */,
 			);

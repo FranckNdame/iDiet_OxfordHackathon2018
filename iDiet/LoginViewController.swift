@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -40,6 +41,7 @@ class LoginViewController: UIViewController {
         lb.setTitle("Login", for: .normal)
         lb.backgroundColor = .green
         lb.layer.cornerRadius = 10
+        lb.addTarget(self, action: #selector(login), for: .touchUpInside)
         return lb
     }()
     
@@ -48,6 +50,7 @@ class LoginViewController: UIViewController {
         rb.setTitle("Register", for: .normal)
         rb.backgroundColor = .green
         rb.layer.cornerRadius = 10
+        rb.addTarget(self, action: #selector(register), for: .touchUpInside)
         return rb
     }()
 
@@ -78,15 +81,25 @@ class LoginViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Functions
+    @objc func login() {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error == nil {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Incorrect Username or Password!!", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
     }
-    */
-
+    
+    @objc func register() {
+        let RegisterView = RegisterViewController()
+        present(RegisterView, animated: true, completion: nil)
+    }
 }

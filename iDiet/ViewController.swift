@@ -10,14 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var isLoggedIn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let LoginView = RegisterViewController()
+        if isLoggedIn == false {
+        isLoggedIn = true
+        let LoginView = LoginViewController()
         present(LoginView, animated: true, completion: nil)
+        }
     }
 
 
