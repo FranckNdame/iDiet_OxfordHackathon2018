@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     
     // MARK: - References
     var ref: DatabaseReference!
+    var refCurrent: DatabaseReference!
     var uid = ""
     
     // MARK: - Skeleton
@@ -122,6 +123,9 @@ class RegisterViewController: UIViewController {
                 self.uid = user.uid
                 self.ref = Database.database().reference().child("Users").child(self.uid)
                 self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!, "Target": self.CalorieTargerTextField.text!])
+                
+                self.refCurrent = Database.database().reference().child("Status").child(self.uid)
+                self.refCurrent.setValue(["Current": "0"])
                 print("You have successfully registered!!")
                 self.dismiss(animated: true, completion: nil)
             } else {

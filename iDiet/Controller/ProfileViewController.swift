@@ -13,9 +13,11 @@ import MKRingProgressView
 class ProfileViewController: UIViewController {
     
     var ref: DatabaseReference!
+    var refCurrent: DatabaseReference!
     var height = ""
     var weight = ""
     var target = ""
+    var current = ""
     var bmi = 0.0
     
     // MARK: - IBOUTLETS
@@ -52,20 +54,48 @@ class ProfileViewController: UIViewController {
         navigationUsernameLabel.alpha = 0
         guard let user = Auth.auth().currentUser else {return}
         ref = Database.database().reference().child("Users").child(user.uid)
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        ObserveCurrent()
         ObserveStats()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+
+        
+        caloriesView.progress = 0
+        proteinsView.progress = 0
+        carbsView.progress = 0
+        fatsView.progress = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        caloriesView.progress = 0.5
+        proteinsView.progress = 0.2
+        carbsView.progress = 0.4
+        fatsView.progress = 0.1
+    }
+    
+    func ObserveCurrent() {
+        guard let userID = Auth.auth().currentUser else {return}
+        refCurrent = Database.database().reference().child("Status").child(userID.uid)
+        refCurrent.observe(.value, with: { snapshot in
+            
+            let value = snapshot.value as? NSDictionary
+            self.current = value?["Current"] as! String
+            self.calorieLabel.text = "\(self.current)/\(self.target)cal"
+        })
+    }
+    
     func ObserveStats() {
+        guard let user = Auth.auth().currentUser else {return}
+        print(user.uid)
+        
         ref.observe(.value, with: { snapshot in
             
             let value = snapshot.value as? NSDictionary
             self.height = value?["Height"] as! String
             self.weight = value?["Weight"] as! String
             self.target = value?["Target"] as! String
+            self.calorieLabel.text = "\(self.current)/\(value?["Target"] as! String)cal"
             self.navigationUsernameLabel.text = value?["Name"] as? String
             self.usernameLabel.text = value?["Name"] as? String
             self.weightLabel.text = "\(self.weight)kg"

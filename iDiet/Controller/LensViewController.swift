@@ -13,6 +13,9 @@ class LensViewController: UIViewController {
     
     // MARK: - References
     var refInsert: DatabaseReference!
+    var refCurrent: DatabaseReference!
+    
+    var currentTarget = 0
     
     // MARK: - Skeleton
     let previewView: UIView = {
@@ -89,6 +92,7 @@ class LensViewController: UIViewController {
         self.previewView.isHidden = true
         captureRef?.delegate = self
         setupView()
+        ObserveCurrent()
     }
     
     // MARK: - Functions
@@ -131,11 +135,21 @@ class LensViewController: UIViewController {
         
     }
     
+    func ObserveCurrent() {
+        guard let userID = Auth.auth().currentUser else {return}
+        refCurrent = Database.database().reference().child("Status").child(userID.uid)
+        refCurrent.observe(.value, with: { snapshot in
+            
+            let value = snapshot.value as? NSDictionary
+            self.currentTarget = Int(value?["Current"] as! String) ?? 0
+        })
+    }
+    
     @objc func addItem() {
+        let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
         guard let userID = Auth.auth().currentUser else {return}
         refInsert = Database.database().reference().child("Status").child(userID.uid)
-        let key = refInsert.childByAutoId().key!
-        self.refInsert.child(key).setValue(["banana": 1])
+        self.refInsert.setValue(["Current": "\(toAdd)"])
         self.previewView.isHidden = true
     }
     

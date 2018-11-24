@@ -83,7 +83,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //                        self.itemTitle.text = Food
 //                        print(i)
 //                        self.itemCalories.text = "Calories: \(self.FoodCalories[i])"
-                        self.delegate?.foodItem(title: food, calories: "Calories: \(self.FoodCalories[i])", fat: "Fat: 100g", sugar: "Sugar: 500g")
+                        self.delegate?.foodItem(title: food, calories: "\(self.FoodCalories[i])", fat: "Fat: 100g", sugar: "Sugar: 500g")
                         
                     }
                     i = i + 1
