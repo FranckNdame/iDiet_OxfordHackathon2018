@@ -314,7 +314,7 @@
         <!--Lens Controller-->
         <scene sceneID="KSO-XT-DHg">
             <objects>
-                <viewController storyboardIdentifier="LensViewController" title="Lens Controller" id="Nlp-UY-Nlc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LensViewController" title="Lens Controller" id="Nlp-UY-Nlc" customClass="LensViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gYK-kE-Nml"/>
                         <viewControllerLayoutGuide type="bottom" id="ows-ij-ket"/>
@@ -364,8 +364,25 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w14-aI-ELc">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1225"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rL-V1-1Xw">
+                                                        <rect key="frame" x="16" y="170" width="343" height="190"/>
+                                                        <color key="backgroundColor" red="0.35686274509803922" green="0.65490196078431373" blue="0.9333685040473938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="190" id="IHn-7K-oER"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="2rL-V1-1Xw" firstAttribute="top" secondItem="w14-aI-ELc" secondAttribute="top" constant="170" id="5Ce-HE-P4X"/>
+                                                    <constraint firstItem="2rL-V1-1Xw" firstAttribute="leading" secondItem="w14-aI-ELc" secondAttribute="leading" constant="16" id="LGg-eM-UWX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2rL-V1-1Xw" secondAttribute="trailing" constant="16" id="e6f-9B-n1m"/>
                                                     <constraint firstAttribute="height" constant="1225" id="lBB-dQ-uh0"/>
                                                 </constraints>
                                             </view>
