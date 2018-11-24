@@ -10,6 +10,8 @@ target 'iDiet' do
     pod 'Firebase/Auth'
     pod 'FirebaseDatabase'
     pod 'Firebase/Storage'
+    pod 'MKRingProgressView'
+    pod 'Kingfisher'
 
 
   target 'iDietTests' do

@@ -63,7 +63,9 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - Kingfisher (4.10.1)
   - leveldb-library (1.20)
+  - MKRingProgressView (2.2)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -75,6 +77,8 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Storage
   - FirebaseDatabase
+  - Kingfisher
+  - MKRingProgressView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -89,7 +93,9 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - Kingfisher
     - leveldb-library
+    - MKRingProgressView
     - nanopb
 
 SPEC CHECKSUMS:
@@ -104,9 +110,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  MKRingProgressView: 6a8eb219f65d1f7ac27ad1986a4f42160b2f7640
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: b253bcd9ef6a1ba7f120d111ac1f71bd622abee4
+PODFILE CHECKSUM: a2f3e59940b21b685097fc698ad29158f01e8045
 
 COCOAPODS: 1.5.2
