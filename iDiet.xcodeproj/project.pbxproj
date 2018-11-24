@@ -15,6 +15,8 @@
 		E05B2C7621A9778C0017D8B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05B2C7421A9778C0017D8B4 /* LaunchScreen.storyboard */; };
 		E05B2C8121A9778C0017D8B4 /* iDietTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C8021A9778C0017D8B4 /* iDietTests.swift */; };
 		E05B2C8C21A9778C0017D8B4 /* iDietUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C8B21A9778C0017D8B4 /* iDietUITests.swift */; };
+		E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098C2C121A9797500ECDE40 /* LoginViewController.swift */; };
+		E098C2C621A97B8000ECDE40 /* Anchor Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098C2C521A97B8000ECDE40 /* Anchor Extensions.swift */; };
 		F85B1AEAC585779978F148A7 /* Pods_iDietUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */; };
 		FAA9CE689D89DF61679E9D4A /* Pods_iDietTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DECEE2DEA73A27EFBFFE8308 /* Pods_iDietTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		E05B2C8721A9778C0017D8B4 /* iDietUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDietUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05B2C8B21A9778C0017D8B4 /* iDietUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDietUITests.swift; sourceTree = "<group>"; };
 		E05B2C8D21A9778C0017D8B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E098C2C121A9797500ECDE40 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E098C2C521A97B8000ECDE40 /* Anchor Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anchor Extensions.swift"; sourceTree = "<group>"; };
 		FC544FED9E170D085844BBD8 /* Pods-iDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDiet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDiet/Pods-iDiet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,12 +141,14 @@
 		E05B2C6A21A9778B0017D8B4 /* iDiet */ = {
 			isa = PBXGroup;
 			children = (
+				E098C2C321A97B5F00ECDE40 /* Extensions */,
 				E05B2C6B21A9778B0017D8B4 /* AppDelegate.swift */,
 				E05B2C6D21A9778B0017D8B4 /* ViewController.swift */,
 				E05B2C6F21A9778B0017D8B4 /* Main.storyboard */,
 				E05B2C7221A9778C0017D8B4 /* Assets.xcassets */,
 				E05B2C7421A9778C0017D8B4 /* LaunchScreen.storyboard */,
 				E05B2C7721A9778C0017D8B4 /* Info.plist */,
+				E098C2C121A9797500ECDE40 /* LoginViewController.swift */,
 			);
 			path = iDiet;
 			sourceTree = "<group>";
@@ -163,6 +169,14 @@
 				E05B2C8D21A9778C0017D8B4 /* Info.plist */,
 			);
 			path = iDietUITests;
+			sourceTree = "<group>";
+		};
+		E098C2C321A97B5F00ECDE40 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E098C2C521A97B8000ECDE40 /* Anchor Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +395,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */,
+				E098C2C621A97B8000ECDE40 /* Anchor Extensions.swift in Sources */,
 				E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */,
 				E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */,
 			);
