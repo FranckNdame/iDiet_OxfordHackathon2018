@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -34,6 +35,7 @@ class RegisterViewController: UIViewController {
         rb.setTitle("Register", for: .normal)
         rb.backgroundColor = .green
         rb.layer.cornerRadius = 10
+        rb.addTarget(self, action: #selector(register), for: .touchUpInside)
         return rb
     }()
     
@@ -42,6 +44,7 @@ class RegisterViewController: UIViewController {
         rb.setTitle("Already Registered?", for: .normal)
         rb.backgroundColor = .green
         rb.layer.cornerRadius = 10
+        rb.addTarget(self, action: #selector(login), for: .touchUpInside)
         return rb
     }()
 
@@ -65,19 +68,36 @@ class RegisterViewController: UIViewController {
         RegisterButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         self.view.addSubview(LoginButton)
-        LoginButton.anchor(top: LoginButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        LoginButton.anchor(top: RegisterButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         LoginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Functions
+    @objc func login() {
+        dismiss(animated: true, completion: nil)
+        
     }
-    */
+    
+    @objc func register() {
+        
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
+            if error == nil {
+                print("You have successfully registered!!")
+                guard let user = authResult?.user else { return }
+                print(user.uid)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+
+        }
+        
+        
+    }
 
 }
