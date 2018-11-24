@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController {
     var current = ""
     var bmi = 0.0
     
+    var logginIn = true
+    
     // MARK: - IBOUTLETS
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -53,13 +55,17 @@ class ProfileViewController: UIViewController {
         backgroundView.layer.masksToBounds = true
         navigationUsernameLabel.alpha = 0
         guard let user = Auth.auth().currentUser else {return}
-        ref = Database.database().reference().child("Users").child(user.uid)
-        ObserveCurrent()
-        ObserveStats()
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        guard let user = Auth.auth().currentUser else {return}
+        if logginIn == true {
+        ObserveCurrent()
+        ObserveStats()
+        logginIn = false
+        }
         
         caloriesView.progress = 0
         proteinsView.progress = 0
@@ -88,7 +94,7 @@ class ProfileViewController: UIViewController {
     func ObserveStats() {
         guard let user = Auth.auth().currentUser else {return}
         print(user.uid)
-        
+        ref = Database.database().reference().child("Users").child(user.uid)
         ref.observe(.value, with: { snapshot in
             
             let value = snapshot.value as? NSDictionary
