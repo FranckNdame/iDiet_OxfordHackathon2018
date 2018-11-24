@@ -1,0 +1,6 @@
+framework module Pods_iDietTests {
+  umbrella header "Pods-iDietTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
