@@ -10,6 +10,12 @@
 		5B3F346A21A99AA400F62253 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346921A99AA400F62253 /* User.swift */; };
 		5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346B21A99CD900F62253 /* NavigationView.swift */; };
 		5B3F346E21A99CED00F62253 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */; };
+		5B3F347021A9A74000F62253 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346F21A9A74000F62253 /* MainViewController.swift */; };
+		5B3F347221A9A7A300F62253 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347121A9A7A300F62253 /* ScrollViewController.swift */; };
+		5B3F347421A9A83000F62253 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347321A9A83000F62253 /* ScanViewController.swift */; };
+		5B3F347621A9A89200F62253 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347521A9A89200F62253 /* ProfileViewController.swift */; };
+		5B3F347821A9A8B900F62253 /* IntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347721A9A8B900F62253 /* IntakeViewController.swift */; };
+		5B3F347A21A9A9B700F62253 /* LensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347921A9A9B700F62253 /* LensViewController.swift */; };
 		9CC7DD14706767D8C60D1394 /* Pods_iDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4188EE018A127CCF8A1FD6BA /* Pods_iDiet.framework */; };
 		E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6B21A9778B0017D8B4 /* AppDelegate.swift */; };
 		E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6D21A9778B0017D8B4 /* ViewController.swift */; };
@@ -53,6 +59,12 @@
 		5B3F346921A99AA400F62253 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B3F346B21A99CD900F62253 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
+		5B3F346F21A9A74000F62253 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5B3F347121A9A7A300F62253 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		5B3F347321A9A83000F62253 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		5B3F347521A9A89200F62253 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5B3F347721A9A8B900F62253 /* IntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeViewController.swift; sourceTree = "<group>"; };
+		5B3F347921A9A9B700F62253 /* LensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensViewController.swift; sourceTree = "<group>"; };
 		644DF95E23F4D546FC610AEB /* Pods-iDietUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDietUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		939C87874E50CE89C6C7D9DA /* Pods-iDietUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +137,12 @@
 				E098C2C121A9797500ECDE40 /* LoginViewController.swift */,
 				E098C2C721A9856000ECDE40 /* RegisterViewController.swift */,
 				E098C2CB21A9904E00ECDE40 /* CaptureViewController.swift */,
+				5B3F346F21A9A74000F62253 /* MainViewController.swift */,
+				5B3F347121A9A7A300F62253 /* ScrollViewController.swift */,
+				5B3F347321A9A83000F62253 /* ScanViewController.swift */,
+				5B3F347521A9A89200F62253 /* ProfileViewController.swift */,
+				5B3F347721A9A8B900F62253 /* IntakeViewController.swift */,
+				5B3F347921A9A9B700F62253 /* LensViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -449,14 +467,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3F347821A9A8B900F62253 /* IntakeViewController.swift in Sources */,
 				E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */,
+				5B3F347021A9A74000F62253 /* MainViewController.swift in Sources */,
 				5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */,
 				E098C2CC21A9904E00ECDE40 /* CaptureViewController.swift in Sources */,
+				5B3F347621A9A89200F62253 /* ProfileViewController.swift in Sources */,
+				5B3F347421A9A83000F62253 /* ScanViewController.swift in Sources */,
 				E098C2C821A9856000ECDE40 /* RegisterViewController.swift in Sources */,
 				E098C2C621A97B8000ECDE40 /* Anchor Extensions.swift in Sources */,
 				5B3F346E21A99CED00F62253 /* NavigationViewAnimation.swift in Sources */,
+				5B3F347221A9A7A300F62253 /* ScrollViewController.swift in Sources */,
 				5B3F346A21A99AA400F62253 /* User.swift in Sources */,
 				E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */,
+				5B3F347A21A9A9B700F62253 /* LensViewController.swift in Sources */,
 				E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */,
 				E098C2CE21A996C500ECDE40 /* Inceptionv3.mlmodel in Sources */,
 			);

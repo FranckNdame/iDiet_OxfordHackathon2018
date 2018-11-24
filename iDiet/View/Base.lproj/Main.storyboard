@@ -12,7 +12,7 @@
         <!--Main Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Main Controller" id="BYZ-38-t0r" customClass="ViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main Controller" id="BYZ-38-t0r" customClass="MainViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,6 +170,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationView" destination="x5D-vi-Fk3" id="siM-cB-TG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Cd7-GQ-hog"/>
@@ -219,7 +222,7 @@
         <!--Intake Controller-->
         <scene sceneID="ZWW-3i-7ev">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" title="Intake Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VG1-ti-YgK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntakeViewController" title="Intake Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VG1-ti-YgK" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="odf-Ul-XLV"/>
                         <viewControllerLayoutGuide type="bottom" id="mIc-id-eeG"/>
@@ -283,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="2398" y="204"/>
         </scene>
-        <!--View Controller-->
+        <!--Lens Controller-->
         <scene sceneID="KSO-XT-DHg">
             <objects>
-                <viewController storyboardIdentifier="LensViewController" id="Nlp-UY-Nlc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LensViewController" title="Lens Controller" id="Nlp-UY-Nlc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gYK-kE-Nml"/>
                         <viewControllerLayoutGuide type="bottom" id="ows-ij-ket"/>
@@ -331,7 +334,7 @@
         <!--Profile Controller-->
         <scene sceneID="AK1-bN-iJz">
             <objects>
-                <viewController storyboardIdentifier="DiscoverViewController" title="Profile Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fkh-wv-k8C" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fkh-wv-k8C" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QUa-iq-M79"/>
                         <viewControllerLayoutGuide type="bottom" id="J7i-xu-kfM"/>
