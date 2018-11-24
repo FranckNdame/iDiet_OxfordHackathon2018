@@ -11,8 +11,10 @@ import UIKit
 protocol ColoredView {
     var controllerColor: UIColor { get set }
 }
+var mainViewRef: MainViewController?
 
 class MainViewController: UIViewController {
+    
     
     // MARK: - Properties
     var scrollViewController: ScrollViewController!
@@ -29,6 +31,7 @@ class MainViewController: UIViewController {
         return self.storyboard?.instantiateViewController(withIdentifier: "LensViewController")
     }()
     
+    var delegate: CaptureDelegate?
     var scanViewController: ScanViewController!
     
     // MARK: - IBOutlets
@@ -47,7 +50,17 @@ class MainViewController: UIViewController {
             scrollViewController.delegate = self
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mainViewRef = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        mainViewRef = self
+    }
 }
+
 
 // MARK: - IBActions
 extension MainViewController {
@@ -84,9 +97,26 @@ extension MainViewController: ScrollViewControllerDelegate {
             controller = profileViewController
         } else if scrollViewController.isControllerVisible(intakesViewController) {
             controller = intakesViewController
+            
         }
         navigationView.animate(to: controller, percent: result)
+        
+        switch result {
+        case -1:
+            print("should stop processing")
+            print(delegate)
+            delegate?.shouldAbortCapture()
+        case 1:
+            print("should stop processing")
+            delegate?.shouldAbortCapture()
+        default:
+            delegate?.shouldRestartCapture()
+        }
     }
+    
+  
+    
+    
     
     var viewControllers: [UIViewController?] {
         return [profileViewController,lensViewController,intakesViewController]

@@ -208,7 +208,7 @@
         <!--Scan Controller-->
         <scene sceneID="a3h-Zq-aDm">
             <objects>
-                <viewController title="Scan Controller" id="r9j-L3-bJo" customClass="ScanViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Scan Controller" id="r9j-L3-bJo" customClass="CaptureViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vot-Rj-y5T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

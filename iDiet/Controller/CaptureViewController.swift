@@ -20,6 +20,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var FoodName: [String] = [String]()
     var FoodCalories: [String] = [String]()
     let captureSession = AVCaptureSession()
+   
     
     
     // MARK: - Skeleton
@@ -90,9 +91,14 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         return eb
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        mainViewRef?.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.previewView.isHidden = true
+//        mainViewRef?.delegate = self
         
         let userID = Auth.auth().currentUser!.uid
         ref = Database.database().reference().child("Food")
@@ -208,5 +214,19 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         
         })
     }
+    
 
+
+}
+
+extension CaptureViewController: CaptureDelegate {
+    func shouldAbortCapture() {
+        captureSession.stopRunning()
+    }
+    
+    func shouldRestartCapture() {
+        captureSession.startRunning()
+    }
+    
+    
 }
