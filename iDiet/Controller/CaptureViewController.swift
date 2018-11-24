@@ -133,6 +133,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
         if available == true {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
