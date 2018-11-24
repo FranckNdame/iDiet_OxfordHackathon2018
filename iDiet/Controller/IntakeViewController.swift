@@ -16,7 +16,7 @@ class IntakeViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     
     // MARK: - Properties
-    var controllerColor: UIColor = UIColor(red: 0.59, green: 0.23, blue: 0.96, alpha: 1.0)
+    var controllerColor: UIColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {

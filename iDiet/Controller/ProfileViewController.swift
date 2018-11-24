@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import MKRingProgressView
 
 class ProfileViewController: UIViewController {
     
@@ -23,9 +24,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var avatarView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var navigationUsernameLabel: UILabel!
+    
+    // User stats
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var bmiLabel: UILabel!
+    @IBOutlet weak var calorieLabel: UILabel!
+    
+    // Circular View
+    @IBOutlet weak var caloriesView: RingProgressView!
+    @IBOutlet weak var proteinsView: RingProgressView!
+    @IBOutlet weak var carbsView: RingProgressView!
+    @IBOutlet weak var fatsView: RingProgressView!
+    
     
     
     

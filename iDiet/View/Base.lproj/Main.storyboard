@@ -279,7 +279,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-yv-9Rt" userLabel="Backgroun View">
                                 <rect key="frame" x="0.0" y="80" width="375" height="752"/>
-                                <color key="backgroundColor" red="0.35139090499999998" green="0.79116434010000003" blue="0.38736155220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Init View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0x-eC-Kwi">
                                 <rect key="frame" x="115.33333333333333" y="395.66666666666669" width="144.33333333333337" height="21"/>
@@ -986,8 +986,13 @@
                         <outlet property="avatarView" destination="vOM-S7-PDn" id="X7Q-Wv-8lb"/>
                         <outlet property="backgroundView" destination="i1S-JJ-BMK" id="aLo-7P-gH7"/>
                         <outlet property="bmiLabel" destination="ysT-Q6-ipT" id="cEx-AQ-lIy"/>
+                        <outlet property="calorieLabel" destination="c4t-aH-wdr" id="DYF-3i-MoR"/>
+                        <outlet property="caloriesView" destination="gK7-d1-FcF" id="o2s-Oq-Xxg"/>
+                        <outlet property="carbsView" destination="msI-8g-hpA" id="jZY-z5-Kam"/>
+                        <outlet property="fatsView" destination="eCO-bx-wYV" id="xMj-44-NOY"/>
                         <outlet property="heightLabel" destination="okF-VL-9hb" id="xZZ-Fh-0ad"/>
                         <outlet property="navigationUsernameLabel" destination="wmr-ge-VJS" id="thA-Fd-vFO"/>
+                        <outlet property="proteinsView" destination="sko-OH-r1V" id="FqK-4O-LzO"/>
                         <outlet property="scrollView" destination="U6C-dv-Rsu" id="q3D-Vo-fbc"/>
                         <outlet property="usernameLabel" destination="twg-f9-WoK" id="sK1-NT-eiF"/>
                         <outlet property="weightLabel" destination="WfL-V8-796" id="u6Z-hS-xef"/>
