@@ -54,13 +54,9 @@ class ProfileViewController: UIViewController {
             self.weightLabel.text = "\(self.weight)kg"
             self.heightLabel.text = "\(self.height)cm"
             let heightstart = Int(self.height) ?? 0
-            print(heightstart)
             let heightMeters = Double(heightstart) / 100
-            print(heightMeters)
             let heightsquared = Double(heightMeters) * Double(heightMeters)
-            print(heightsquared)
             let weightstart = Int(self.weight) ?? 0
-            print(weightstart)
             self.bmi = Double(weightstart)/heightsquared
             self.bmiLabel.text = "\(self.bmi)"
         })
