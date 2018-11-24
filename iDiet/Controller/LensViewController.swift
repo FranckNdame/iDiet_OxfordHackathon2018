@@ -16,6 +16,7 @@ class LensViewController: UIViewController {
     var refCurrent: DatabaseReference!
     
     var currentTarget = 0
+    var loggedIn = true
     
     // MARK: - Skeleton
     let previewView: UIView = {
@@ -92,7 +93,14 @@ class LensViewController: UIViewController {
         self.previewView.isHidden = true
         captureRef?.delegate = self
         setupView()
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let user = Auth.auth().currentUser else {return}
+        if loggedIn == true {
         ObserveCurrent()
+        }
     }
     
     // MARK: - Functions
