@@ -24,20 +24,20 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMs-qC-1xL" userLabel="Color View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anC-bc-kKL" userLabel="Scroller Container View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <segue destination="V57-7K-pUD" kind="embed" id="dzr-Qa-oie"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5D-vi-Fk3" userLabel="Navigation View" customClass="NavigationView" customModule="iDiet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFx-rY-hB0" userLabel="Scan Button view">
-                                        <rect key="frame" x="147.5" y="495" width="80" height="80"/>
+                                        <rect key="frame" x="147.5" y="515" width="80" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unX-dT-RpI" userLabel="Scan Button Gray">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3E-LS-pce" userLabel="Profile Button View">
-                                        <rect key="frame" x="17" y="569" width="44" height="44"/>
+                                        <rect key="frame" x="17" y="589" width="44" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qpd-de-bsQ" userLabel="Profile Button Gray">
                                                 <rect key="frame" x="7" y="14" width="30" height="30"/>
@@ -93,7 +93,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-3i-a91" userLabel="Intake Button View">
-                                        <rect key="frame" x="313.5" y="569" width="44" height="44"/>
+                                        <rect key="frame" x="313.5" y="589" width="44" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vm5-vt-kYz" userLabel="Intake Button Gray">
                                                 <rect key="frame" x="7" y="14" width="30" height="30"/>
@@ -120,7 +120,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-Pv-yCy" userLabel="Indicator">
-                                        <rect key="frame" x="164.5" y="633" width="46" height="4"/>
+                                        <rect key="frame" x="164.5" y="653" width="46" height="4"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="fBf-Rt-RHm"/>
@@ -163,24 +163,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.89578045685279184" green="0.89578045685279184" blue="0.89578045685279184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="anC-bc-kKL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0fu-iU-9mw"/>
-                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DlG-Fk-Tdd"/>
-                            <constraint firstItem="x5D-vi-Fk3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GGq-ad-J0d"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TMs-qC-1xL" secondAttribute="bottom" id="Lbd-oT-lAL"/>
-                            <constraint firstItem="TMs-qC-1xL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mdp-9n-WNJ"/>
-                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NwP-NR-EIq"/>
+                            <constraint firstItem="anC-bc-kKL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0fu-iU-9mw"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DlG-Fk-Tdd"/>
+                            <constraint firstItem="x5D-vi-Fk3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GGq-ad-J0d"/>
+                            <constraint firstAttribute="bottom" secondItem="TMs-qC-1xL" secondAttribute="bottom" id="Lbd-oT-lAL"/>
+                            <constraint firstItem="TMs-qC-1xL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="M6j-bh-wGi"/>
+                            <constraint firstItem="TMs-qC-1xL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mdp-9n-WNJ"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="NwP-NR-EIq"/>
                             <constraint firstItem="G0B-Sb-XYU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RTv-pC-aFX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="anC-bc-kKL" secondAttribute="bottom" id="Wtb-nG-eMW"/>
-                            <constraint firstItem="anC-bc-kKL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XVm-HE-kaW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x5D-vi-Fk3" secondAttribute="trailing" id="YvY-P9-yVw"/>
-                            <constraint firstItem="TMs-qC-1xL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cEi-st-kb4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x5D-vi-Fk3" secondAttribute="bottom" id="exr-Eg-x4u"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TMs-qC-1xL" secondAttribute="trailing" id="jWx-Jv-MAC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="anC-bc-kKL" secondAttribute="trailing" id="mk9-pC-4cE"/>
-                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pzN-ha-bwO"/>
-                            <constraint firstItem="x5D-vi-Fk3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vSv-Oc-Bxr"/>
+                            <constraint firstAttribute="bottom" secondItem="anC-bc-kKL" secondAttribute="bottom" id="Wtb-nG-eMW"/>
+                            <constraint firstItem="anC-bc-kKL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XVm-HE-kaW"/>
+                            <constraint firstAttribute="trailing" secondItem="x5D-vi-Fk3" secondAttribute="trailing" id="YvY-P9-yVw"/>
+                            <constraint firstAttribute="bottom" secondItem="x5D-vi-Fk3" secondAttribute="bottom" id="exr-Eg-x4u"/>
+                            <constraint firstAttribute="trailing" secondItem="TMs-qC-1xL" secondAttribute="trailing" id="jWx-Jv-MAC"/>
+                            <constraint firstAttribute="trailing" secondItem="anC-bc-kKL" secondAttribute="trailing" id="mk9-pC-4cE"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="pzN-ha-bwO"/>
+                            <constraint firstItem="x5D-vi-Fk3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vSv-Oc-Bxr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="1bs-5F-D6m"/>
                     </view>
                     <connections>
                         <outlet property="navigationView" destination="x5D-vi-Fk3" id="siM-cB-TG5"/>
@@ -203,7 +203,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="18" y="-520"/>
+            <point key="canvasLocation" x="16.800000000000001" y="-520.38980509745136"/>
         </scene>
         <!--Scan Controller-->
         <scene sceneID="a3h-Zq-aDm">
@@ -233,7 +233,7 @@
             <objects>
                 <viewController title="Scroll View" id="V57-7K-pUD" customClass="ScrollViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c92-cf-UsE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ENa-Mv-Jeu"/>
