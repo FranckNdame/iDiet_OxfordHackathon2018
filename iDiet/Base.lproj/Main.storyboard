@@ -17,20 +17,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ahmady" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7p-Ke-YXG">
-                                <rect key="frame" x="166" y="268" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-Sb-XYU" userLabel="Camera Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="r9j-L3-bJo" kind="embed" id="yoG-Ty-0Sv"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMs-qC-1xL" userLabel="Color View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anC-bc-kKL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <segue destination="V57-7K-pUD" kind="embed" id="dzr-Qa-oie"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="anC-bc-kKL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0fu-iU-9mw"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DlG-Fk-Tdd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TMs-qC-1xL" secondAttribute="bottom" id="Lbd-oT-lAL"/>
+                            <constraint firstItem="TMs-qC-1xL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mdp-9n-WNJ"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NwP-NR-EIq"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RTv-pC-aFX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="anC-bc-kKL" secondAttribute="bottom" id="Wtb-nG-eMW"/>
+                            <constraint firstItem="anC-bc-kKL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XVm-HE-kaW"/>
+                            <constraint firstItem="TMs-qC-1xL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cEi-st-kb4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TMs-qC-1xL" secondAttribute="trailing" id="jWx-Jv-MAC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="anC-bc-kKL" secondAttribute="trailing" id="mk9-pC-4cE"/>
+                            <constraint firstItem="G0B-Sb-XYU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pzN-ha-bwO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18" y="-520"/>
+        </scene>
+        <!--Camera Controller-->
+        <scene sceneID="a3h-Zq-aDm">
+            <objects>
+                <viewController title="Camera Controller" id="r9j-L3-bJo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vot-Rj-y5T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Scan View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLi-pg-Yfh">
+                                <rect key="frame" x="79" y="90" width="216" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJ3-lf-evm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="215"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ng4-Ia-nmy">
+            <objects>
+                <viewController id="V57-7K-pUD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c92-cf-UsE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGf-e0-h3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="-520"/>
         </scene>
     </scenes>
 </document>
