@@ -88,6 +88,7 @@ class ProfileViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             self.current = value?["Current"] as! String
             self.calorieLabel.text = "\(self.current)/\(self.target)cal"
+            self.caloriesView.progress = Double(self.current)!/Double(self.target)!
         })
     }
     
