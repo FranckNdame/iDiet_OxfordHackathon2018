@@ -11,6 +11,9 @@ import Firebase
 
 class RegisterViewController: UIViewController {
     
+    // MARK: - References
+    var ref: DatabaseReference!
+    
     // MARK: - Skeleton
     let nameTextField: UITextField = {
         let tf = UITextField()
@@ -51,6 +54,10 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        let userID = Auth.auth().currentUser!.uid
+        ref = Database.database().reference().child("Users").child(userID)
+        
         self.view.addSubview(nameTextField)
         nameTextField.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         nameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -82,6 +89,7 @@ class RegisterViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
             if error == nil {
+                self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!])
                 print("You have successfully registered!!")
                 guard let user = authResult?.user else { return }
                 print(user.uid)
@@ -96,7 +104,6 @@ class RegisterViewController: UIViewController {
             }
 
         }
-        
         
     }
 
