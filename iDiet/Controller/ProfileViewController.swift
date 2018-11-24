@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -26,7 +27,13 @@ class ProfileViewController: UIViewController {
     
     //MARK: - IBACTIONS
     @IBAction func handleLogoutButton(_ sender: UIButton) {
-        // Do something mr karkouty
+        try! Auth.auth().signOut()
+        if Auth.auth().currentUser != nil {
+            print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
+        } else {
+            let LoginView = LoginViewController()
+            present(LoginView, animated: true, completion: nil)
+        }
     }
 }
 

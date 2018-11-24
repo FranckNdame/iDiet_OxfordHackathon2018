@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     
     // MARK: - References
     var ref: DatabaseReference!
+    var uid = ""
     
     // MARK: - Skeleton
     let nameTextField: UITextField = {
@@ -28,6 +29,18 @@ class RegisterViewController: UIViewController {
     }()
     
     let passwordTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Password"
+        return tf
+    }()
+    
+    let heightTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Password"
+        return tf
+    }()
+    
+    let weightTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
         return tf
@@ -55,8 +68,6 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        let userID = Auth.auth().currentUser!.uid
-        ref = Database.database().reference().child("Users").child(userID)
         
         self.view.addSubview(nameTextField)
         nameTextField.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
@@ -70,8 +81,16 @@ class RegisterViewController: UIViewController {
         passwordTextField.anchor(top: emailTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         passwordTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
+        self.view.addSubview(heightTextField)
+        heightTextField.anchor(top: passwordTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        heightTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        self.view.addSubview(weightTextField)
+        weightTextField.anchor(top: heightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        weightTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
         self.view.addSubview(RegisterButton)
-        RegisterButton.anchor(top: passwordTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        RegisterButton.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         RegisterButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         self.view.addSubview(LoginButton)
@@ -89,10 +108,11 @@ class RegisterViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
             if error == nil {
-                self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!])
-                print("You have successfully registered!!")
                 guard let user = authResult?.user else { return }
-                print(user.uid)
+                self.uid = user.uid
+                self.ref = Database.database().reference().child("Users").child(self.uid)
+                self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!])
+                print("You have successfully registered!!")
                 self.dismiss(animated: true, completion: nil)
             } else {
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)

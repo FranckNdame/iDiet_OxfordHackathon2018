@@ -17,7 +17,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 
     // MARK: - References
     var ref: DatabaseReference!
-    var refInsert: DatabaseReference!
     var delegate: LensDelegate?
     
     var FoodName: [String] = [String]()
@@ -25,6 +24,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     let captureSession = AVCaptureSession()
    
     var available = true
+    var loop = 1
     
     override func viewWillAppear(_ animated: Bool) {
         mainViewRef?.delegate = self
@@ -35,10 +35,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     override func viewDidLoad() {
         super.viewDidLoad()
 //        mainViewRef?.delegate = self
-        
-        let userID = Auth.auth().currentUser!.uid
-        ref = Database.database().reference().child("Food")
-        refInsert = Database.database().reference().child("Status").child(userID)
+    
         
         captureSession.sessionPreset = .photo
         
@@ -56,10 +53,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         captureSession.startRunning()
         
         captureSession.addOutput(dataOutput)
-        
+        ref = Database.database().reference().child("Food")
         ObserveFood()
         
     }
+
+    
+
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
@@ -108,6 +108,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             self.FoodCalories.append(value?["Calories"] as! String)
         
         })
+        
+        if Auth.auth().currentUser != nil {
+            print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
+        } else {
+            let LoginView = LoginViewController()
+            present(LoginView, animated: true, completion: nil)
+        }
     }
     
 

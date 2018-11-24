@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol ColoredView {
     var controllerColor: UIColor { get set }
@@ -55,6 +56,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         mainViewRef = self
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         mainViewRef = self
