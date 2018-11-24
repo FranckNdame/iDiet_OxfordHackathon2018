@@ -21,6 +21,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var FoodCalories: [String] = [String]()
     let captureSession = AVCaptureSession()
    
+    var available = true
     
     
     // MARK: - Skeleton
@@ -91,9 +92,14 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         return eb
     }()
     
-    override func viewDidAppear(_ animated: Bool) {
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//    }
+//    
+    override func viewWillAppear(_ animated: Bool) {
         mainViewRef?.delegate = self
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +133,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
+        if available == true {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
         let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
@@ -155,6 +161,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         }
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+        }
     }
     
     
@@ -221,11 +228,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 
 extension CaptureViewController: CaptureDelegate {
     func shouldAbortCapture() {
-        captureSession.stopRunning()
+//        captureSession.stopRunning()
+        available = false
     }
     
     func shouldRestartCapture() {
-        captureSession.startRunning()
+//        captureSession.startRunning()
+        available = true
     }
     
     
