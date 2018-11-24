@@ -88,8 +88,6 @@ class LensViewController: UIViewController {
         super.viewDidLoad()
         self.previewView.isHidden = true
         captureRef?.delegate = self
-        guard let userID = Auth.auth().currentUser else {return}
-        refInsert = Database.database().reference().child("Status").child(userID.uid)
         setupView()
     }
     
@@ -134,6 +132,8 @@ class LensViewController: UIViewController {
     }
     
     @objc func addItem() {
+        guard let userID = Auth.auth().currentUser else {return}
+        refInsert = Database.database().reference().child("Status").child(userID.uid)
         let key = refInsert.childByAutoId().key!
         self.refInsert.child(key).setValue(["banana": 1])
         self.previewView.isHidden = true

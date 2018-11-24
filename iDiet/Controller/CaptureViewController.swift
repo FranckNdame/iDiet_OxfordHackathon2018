@@ -106,15 +106,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             let value = snapshot.value as? NSDictionary
             self.FoodName.append(value?["Name"] as! String)
             self.FoodCalories.append(value?["Calories"] as! String)
-        
+            print("here")
         })
-        
-        if Auth.auth().currentUser != nil {
-            print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
-        } else {
-            let LoginView = LoginViewController()
-            present(LoginView, animated: true, completion: nil)
-        }
     }
     
 

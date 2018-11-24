@@ -56,7 +56,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         mainViewRef = self
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
+        } else {
+            let LoginView = LoginViewController()
+            present(LoginView, animated: true, completion: nil)
+        }
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         mainViewRef = self
