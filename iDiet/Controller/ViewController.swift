@@ -20,8 +20,6 @@ class ViewController: UIViewController {
         
         if Auth.auth().currentUser != nil {
             print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
-            let LoginView = CaptureViewController()
-            present(LoginView, animated: true, completion: nil)
         } else {
             let LoginView = LoginViewController()
             present(LoginView, animated: true, completion: nil)
