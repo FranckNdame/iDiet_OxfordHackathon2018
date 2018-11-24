@@ -47,6 +47,7 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99949067830000005" green="0.27156034109999999" blue="0.2320275903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="unX-dT-RpI" secondAttribute="bottom" id="1ID-3F-Chn"/>
                                             <constraint firstAttribute="width" secondItem="BFx-rY-hB0" secondAttribute="height" multiplier="1:1" id="1kr-yy-OOU"/>
@@ -59,6 +60,9 @@
                                             <constraint firstItem="Ssq-rk-SXY" firstAttribute="leading" secondItem="BFx-rY-hB0" secondAttribute="leading" id="gqo-gQ-R8n"/>
                                             <constraint firstAttribute="bottom" secondItem="Ssq-rk-SXY" secondAttribute="bottom" id="leN-au-cgN"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="fad-VM-zeB" appends="YES" id="z5q-Cr-Mfb"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3E-LS-pce" userLabel="Profile Button View">
                                         <rect key="frame" x="17" y="569" width="44" height="44"/>
@@ -71,6 +75,7 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.086201967089999998" green="0.60991037439999995" blue="0.08387119673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="F29-TQ-yLC" firstAttribute="height" secondItem="c3E-LS-pce" secondAttribute="height" constant="-14" id="34J-lz-5Lm"/>
                                             <constraint firstItem="Qpd-de-bsQ" firstAttribute="centerX" secondItem="c3E-LS-pce" secondAttribute="centerX" id="A6a-qD-8IC"/>
@@ -83,6 +88,9 @@
                                             <constraint firstAttribute="width" secondItem="c3E-LS-pce" secondAttribute="height" multiplier="1:1" id="hFc-8I-Adh"/>
                                             <constraint firstItem="Qpd-de-bsQ" firstAttribute="centerY" secondItem="c3E-LS-pce" secondAttribute="centerY" constant="7" id="l2W-hZ-J1J"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="kUc-NU-6Pb" appends="YES" id="8Tj-x3-Cig"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-3i-a91" userLabel="Intake Button View">
                                         <rect key="frame" x="313.5" y="569" width="44" height="44"/>
@@ -95,6 +103,7 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="vm5-vt-kYz" firstAttribute="width" secondItem="jV0-3i-a91" secondAttribute="width" constant="-14" id="33V-ch-9kz"/>
                                             <constraint firstAttribute="width" secondItem="jV0-3i-a91" secondAttribute="height" multiplier="1:1" id="CCQ-2Q-T7y"/>
@@ -106,6 +115,9 @@
                                             <constraint firstItem="HRw-KU-vqp" firstAttribute="height" secondItem="jV0-3i-a91" secondAttribute="height" constant="-14" id="rq3-Ea-ymb"/>
                                             <constraint firstItem="vm5-vt-kYz" firstAttribute="centerY" secondItem="jV0-3i-a91" secondAttribute="centerY" constant="7" id="xrW-qg-VaO"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="beH-r1-w9F" appends="YES" id="s1D-uv-4LR"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-Pv-yCy" userLabel="Indicator">
                                         <rect key="frame" x="164.5" y="633" width="46" height="4"/>
@@ -175,16 +187,28 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Cd7-GQ-hog"/>
-                <tapGestureRecognizer id="4Uw-fP-QyH"/>
-                <tapGestureRecognizer id="nBt-0d-YuU"/>
+                <tapGestureRecognizer id="fad-VM-zeB">
+                    <connections>
+                        <action selector="handleChatIconTap:" destination="BYZ-38-t0r" id="IkE-IC-kYq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kUc-NU-6Pb">
+                    <connections>
+                        <action selector="handleDiscoverIconTap:" destination="BYZ-38-t0r" id="nsb-tc-X4U"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="beH-r1-w9F">
+                    <connections>
+                        <action selector="handleCameraButton:" destination="BYZ-38-t0r" id="MRj-8D-INX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="18" y="-520"/>
         </scene>
-        <!--Camera Controller-->
+        <!--Scan Controller-->
         <scene sceneID="a3h-Zq-aDm">
             <objects>
-                <viewController title="Camera Controller" id="r9j-L3-bJo" sceneMemberID="viewController">
+                <viewController title="Scan Controller" id="r9j-L3-bJo" customClass="ScanViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vot-Rj-y5T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +231,7 @@
         <!--Scroll View-->
         <scene sceneID="ng4-Ia-nmy">
             <objects>
-                <viewController title="Scroll View" id="V57-7K-pUD" sceneMemberID="viewController">
+                <viewController title="Scroll View" id="V57-7K-pUD" customClass="ScrollViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c92-cf-UsE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,7 +246,7 @@
         <!--Intake Controller-->
         <scene sceneID="ZWW-3i-7ev">
             <objects>
-                <viewController storyboardIdentifier="IntakeViewController" title="Intake Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VG1-ti-YgK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntakeViewController" title="Intake Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VG1-ti-YgK" customClass="IntakeViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="odf-Ul-XLV"/>
                         <viewControllerLayoutGuide type="bottom" id="mIc-id-eeG"/>
@@ -231,9 +255,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-yv-9Rt">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-yv-9Rt" userLabel="Backgroun View">
                                 <rect key="frame" x="0.0" y="80" width="375" height="607"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.35139090499999998" green="0.79116434010000003" blue="0.38736155220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Init View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0x-eC-Kwi">
                                 <rect key="frame" x="115.5" y="323" width="144.5" height="21"/>
@@ -279,7 +303,7 @@
                         <viewLayoutGuide key="safeArea" id="eHP-Qv-FC8"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundView" destination="UqS-yv-9Rt" id="waS-Nr-Tml"/>
+                        <outlet property="backgroundView" destination="UqS-yv-9Rt" id="72n-y0-ut5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBc-Bj-kAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,9 +347,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QGZ-r8-Up8"/>
                     </view>
-                    <connections>
-                        <outlet property="faceImage" destination="wP7-tt-MS1" id="Xfd-gZ-3rV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOM-lf-KhH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -334,7 +355,7 @@
         <!--Profile Controller-->
         <scene sceneID="AK1-bN-iJz">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" title="Profile Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fkh-wv-k8C" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fkh-wv-k8C" customClass="ProfileViewController" customModule="iDiet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QUa-iq-M79"/>
                         <viewControllerLayoutGuide type="bottom" id="J7i-xu-kfM"/>
@@ -345,7 +366,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1S-JJ-BMK">
                                 <rect key="frame" x="0.0" y="80" width="375" height="607"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-2i-h2k">
                                 <rect key="frame" x="102.5" y="100" width="170" height="21"/>
@@ -367,7 +388,7 @@
                         <viewLayoutGuide key="safeArea" id="Q0U-wy-yxY"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundView" destination="i1S-JJ-BMK" id="1gK-po-oJL"/>
+                        <outlet property="backgroundView" destination="i1S-JJ-BMK" id="aLo-7P-gH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl1-HO-Ovc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -51,18 +51,22 @@ class MainViewController: UIViewController {
 
 // MARK: - IBActions
 extension MainViewController {
-    
     @IBAction func handleChatIconTap(_ sender: UITapGestureRecognizer) {
+        print("red")
         scrollViewController.setController(to: profileViewController, animated: true)
+        
     }
     
     @IBAction func handleDiscoverIconTap(_ sender: UITapGestureRecognizer) {
+        print("green")
+        print(intakesViewController)
         scrollViewController.setController(to: intakesViewController, animated: true)
     }
     
     @IBAction func handleCameraButton(_ sender: UITapGestureRecognizer) {
         scrollViewController.setController(to: lensViewController, animated: true)
     }
+
 }
 
 extension MainViewController: ScrollViewControllerDelegate {
