@@ -17,6 +17,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var avatarView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var navigationUsernameLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var bmiLabel: UILabel!
+    
+    
     
     // MARK: - ATTRIBUTES
     var controllerColor: UIColor = UIColor(red: 0.23, green: 0.66, blue: 0.96, alpha: 1.0)
