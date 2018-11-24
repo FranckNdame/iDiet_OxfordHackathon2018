@@ -13,7 +13,6 @@ protocol CaptureDelegate {
     func shouldRestartCapture()
 }
 
-protocol FoodItemDelegate {
+protocol LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String)
-    func hidefoodItem()
 }
