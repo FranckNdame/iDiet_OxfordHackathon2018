@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundView.layer.cornerRadius = 20
+        backgroundView.layer.cornerRadius = 0
         backgroundView.layer.masksToBounds = true
     }
 }
