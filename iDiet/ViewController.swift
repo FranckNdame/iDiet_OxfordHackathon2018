@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let LoginView = LoginViewController()
+        let LoginView = RegisterViewController()
         present(LoginView, animated: true, completion: nil)
     }
 
