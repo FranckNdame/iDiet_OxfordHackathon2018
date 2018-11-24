@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewController: UIViewController {
 
-    var isLoggedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +17,12 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if isLoggedIn == false {
-        isLoggedIn = true
-        let LoginView = LoginViewController()
-        present(LoginView, animated: true, completion: nil)
+        
+        if Auth.auth().currentUser != nil {
+            print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
+        } else {
+            let LoginView = LoginViewController()
+            present(LoginView, animated: true, completion: nil)
         }
     }
 
