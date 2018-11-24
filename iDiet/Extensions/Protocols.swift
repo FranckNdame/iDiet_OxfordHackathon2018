@@ -12,3 +12,8 @@ protocol CaptureDelegate {
     func shouldAbortCapture()
     func shouldRestartCapture()
 }
+
+protocol FoodItemDelegate {
+    func foodItem(title: String, calories: String, fat: String, sugar: String)
+    func hidefoodItem()
+}
