@@ -146,12 +146,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             
             guard let firstObservation = results.first else { return }
             
-            print("this: \(firstObservation.identifier)")
-            
+//            print("this: \(firstObservation.identifier)")
+            guard let singleResult = firstObservation.identifier.components(separatedBy: ",").first else {return}
+            print("this: \(singleResult)")
             DispatchQueue.main.async {
                 var i = 0
                 for Food in self.FoodName {
-                    if firstObservation.identifier == Food {
+                    if singleResult == Food {
                         self.previewView.isHidden = false
                         self.itemTitle.text = Food
                         print(i)
