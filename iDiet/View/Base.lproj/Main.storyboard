@@ -67,10 +67,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3E-LS-pce" userLabel="Profile Button View">
                                         <rect key="frame" x="17" y="665" width="44" height="44"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="Qpd-de-bsQ" userLabel="Profile Button Gray">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-silhouette-gray" translatesAutoresizingMaskIntoConstraints="NO" id="Qpd-de-bsQ" userLabel="Profile Button Gray">
                                                 <rect key="frame" x="7" y="14" width="30" height="30"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="F29-TQ-yLC" userLabel="Profile Button White">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-silhouette-white" translatesAutoresizingMaskIntoConstraints="NO" id="F29-TQ-yLC" userLabel="Profile Button White">
                                                 <rect key="frame" x="7" y="14" width="30" height="30"/>
                                             </imageView>
                                         </subviews>
@@ -95,14 +95,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-3i-a91" userLabel="Intake Button View">
                                         <rect key="frame" x="313.66666666666669" y="665" width="44" height="44"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vm5-vt-kYz" userLabel="Intake Button Gray">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steak-gray" translatesAutoresizingMaskIntoConstraints="NO" id="vm5-vt-kYz" userLabel="Intake Button Gray">
                                                 <rect key="frame" x="7" y="14" width="30" height="30"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HRw-KU-vqp" userLabel="Intake Button White">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steak-white" translatesAutoresizingMaskIntoConstraints="NO" id="HRw-KU-vqp" userLabel="Intake Button White">
                                                 <rect key="frame" x="7" y="14" width="30" height="30"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="vm5-vt-kYz" firstAttribute="width" secondItem="jV0-3i-a91" secondAttribute="width" constant="-14" id="33V-ch-9kz"/>
@@ -1001,8 +1001,11 @@
     <resources>
         <image name="camera-shutter-gray" width="409.60000610351562" height="409.60000610351562"/>
         <image name="monthly" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="profile" width="204.80000305175781" height="204.80000305175781"/>
         <image name="settings" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="steak-gray" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="steak-white" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="user-silhouette-gray" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="user-silhouette-white" width="409.60000610351562" height="409.60000610351562"/>
         <image name="user1" width="1280" height="721"/>
         <image name="weekly" width="45.231903076171875" height="45.231903076171875"/>
     </resources>

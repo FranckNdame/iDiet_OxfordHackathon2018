@@ -15,7 +15,7 @@ extension NavigationView {
         profileIconWhiteView.alpha = 1 - offset
         profileIconGrayView.alpha = offset
         intakeIconWhiteView.alpha = profileIconWhiteView.alpha
-        intakeIconGrayView.alpha = profileIconWhiteView.alpha
+        intakeIconGrayView.alpha = profileIconGrayView.alpha
     }
     
     func animateIconPosition(offset: CGFloat) {

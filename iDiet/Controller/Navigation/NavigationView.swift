@@ -32,6 +32,8 @@ class NavigationView: UIView {
     lazy var indicatorTransform: CGAffineTransform = {
         return self.scanButtonView.transform
     }()
+    
+    
     @IBOutlet var scanButtonView: UIView!
     @IBOutlet var scanButtonWhiteView: UIImageView!
     @IBOutlet var scanButtonGrayView: UIImageView!
@@ -49,6 +51,7 @@ class NavigationView: UIView {
     @IBOutlet var intakeIconWhiteView: UIImageView!
     @IBOutlet var intakeIconGrayView: UIImageView!
     @IBOutlet var intakeIconHorizontalConstraint: NSLayoutConstraint!
+    
     
     @IBOutlet var indicator: UIView!
     
