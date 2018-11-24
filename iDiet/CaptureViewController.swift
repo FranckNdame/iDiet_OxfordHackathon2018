@@ -17,6 +17,10 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var ref: DatabaseReference!
     var refInsert: DatabaseReference!
     
+    var FoodName: [String] = [String]()
+    var FoodCalories: [String] = [String]()
+    let captureSession = AVCaptureSession()
+    
     
     // MARK: - Skeleton
     let previewView: UIView = {
@@ -76,10 +80,78 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         let userID = Auth.auth().currentUser!.uid
         ref = Database.database().reference().child("Food")
         refInsert = Database.database().reference().child("Status").child(userID)
+        
+        captureSession.sessionPreset = .photo
+        
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+        captureSession.addInput(input)
+        
+        let dataOutput = AVCaptureVideoDataOutput()
+        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.frame
+        previewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(previewLayer)
+        captureSession.startRunning()
+        
+        captureSession.addOutput(dataOutput)
+        
+        ObserveFood()
+        
+        setupView()
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
+        let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
+            
+            guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
+            
+            guard let firstObservation = results.first else { return }
+            
+            print("this: \(firstObservation.identifier)")
+            
+            DispatchQueue.main.async {
+                var i = 0
+                for Food in self.FoodName {
+                    if firstObservation.identifier == Food {
+                        self.previewView.isHidden = false
+                        self.itemTitle.text = Food
+                        print(i)
+                        self.itemCalories.text = self.FoodCalories[i]
+                    }
+                    i = i + 1
+                }
+                
+            }
+            
+        }
+        
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
     
     
     // MARK: - Functions
+    
+    func setupView() {
+        self.view.addSubview(previewView)
+        previewView.anchor(top: nil, left: nil, right: nil, bottom: self.view.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 16, width: 343, height: 462)
+        previewView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        self.view.addSubview(itemImage)
+        itemImage.anchor(top: previewView.topAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 150)
+        
+        self.view.addSubview(itemTitle)
+        itemTitle.anchor(top: itemImage.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
+        
+        self.view.addSubview(itemCalories)
+        itemCalories.anchor(top: itemTitle.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
+        
+    }
     
     @objc func cancelItem() {
        self.previewView.isHidden = true
@@ -90,6 +162,16 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
        let key = refInsert.childByAutoId().key!
         self.refInsert.child(key).setValue(["banana": 1])
         self.previewView.isHidden = true
+    }
+    
+    func ObserveFood() {
+        ref.observe(.childAdded, with: { snapshot in
+            
+            let value = snapshot.value as? NSDictionary
+            self.FoodName.append(value?["Name"] as! String)
+            self.FoodCalories.append(value?["Calories"] as! String)
+        
+        })
     }
 
 }
