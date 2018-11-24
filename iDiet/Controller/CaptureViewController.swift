@@ -37,7 +37,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     let itemImage: UIImageView = {
        let ii = UIImageView()
-        ii.contentMode = .scaleAspectFill
+        ii.contentMode = .scaleAspectFit
+        ii.image = UIImage(named: "banana")
         ii.clipsToBounds = true
         return ii
     }()
@@ -59,10 +60,27 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         return ic
     }()
     
+    let itemFat : UILabel = {
+        let ic = UILabel()
+        ic.textColor = .black
+        ic.text = "Fat: 100g"
+        ic.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+        return ic
+    }()
+    
+    let itemSugar : UILabel = {
+        let ic = UILabel()
+        ic.textColor = .black
+        ic.text = "Sugar: 10 mg"
+        ic.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+        return ic
+    }()
+    
     let cancelButton : UIButton = {
         let cb = UIButton()
         cb.setTitle("Cancel", for: .normal)
         cb.backgroundColor = .orange
+        cb.layer.cornerRadius = 8
         cb.addTarget(self, action: #selector(cancelItem), for: .touchUpInside)
         return cb
     }()
@@ -71,7 +89,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         let cb = UIButton()
         cb.setTitle("Add Item", for: .normal)
         cb.addTarget(self, action: #selector(addItem), for: .touchUpInside)
-        cb.backgroundColor = .green
+        cb.layer.cornerRadius = 8
+        cb.backgroundColor = .orange
         return cb
     }()
     
@@ -136,7 +155,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                         self.previewView.isHidden = false
                         self.itemTitle.text = Food
                         print(i)
-                        self.itemCalories.text = self.FoodCalories[i]
+                        self.itemCalories.text = "Calories: \(self.FoodCalories[i])"
                     }
                     i = i + 1
                 }
@@ -155,8 +174,9 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     func setupView() {
         
         self.view.addSubview(previewView)
-        previewView.anchor(top: nil, left: nil, right: nil, bottom: self.view.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 16, width: 343, height: 462)
+        previewView.anchor(top: nil, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 16, width: 343, height: 462)
         previewView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        previewView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
         previewView.addSubview(itemImage)
         itemImage.anchor(top: previewView.topAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 150)
@@ -165,15 +185,22 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         itemTitle.anchor(top: itemImage.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
         
         previewView.addSubview(itemCalories)
-        itemCalories.anchor(top: itemTitle.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
+        itemCalories.anchor(top: itemTitle.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 16, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
         
-        previewView.addSubview(addButton)
-        addButton.anchor(top: itemCalories.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        addButton.centerXAnchor.constraint(equalTo: previewView.centerXAnchor).isActive = true
+        previewView.addSubview(itemFat)
+        itemFat.anchor(top: itemCalories.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 16, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
+        
+        previewView.addSubview(itemSugar)
+        itemSugar.anchor(top: itemFat.bottomAnchor, left: previewView.leftAnchor, right: previewView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 16, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
         
         previewView.addSubview(cancelButton)
-        cancelButton.anchor(top: addButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        cancelButton.anchor(top: nil, left: nil, right: nil, bottom: previewView.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 32, width: 200, height: 0)
         cancelButton.centerXAnchor.constraint(equalTo: previewView.centerXAnchor).isActive = true
+        
+        previewView.addSubview(addButton)
+        addButton.anchor(top: nil, left: nil, right: nil, bottom: cancelButton.topAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 16, width: 200, height: 0)
+        addButton.centerXAnchor.constraint(equalTo: previewView.centerXAnchor).isActive = true
+        
         
     }
     
