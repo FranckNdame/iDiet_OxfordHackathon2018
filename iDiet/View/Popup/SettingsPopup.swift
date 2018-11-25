@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsPopup: NSObject {
+    
+    var selected = "banana"
+    var refAllery: DatabaseReference!
     
     lazy var blackView: UIView = {
         let view = UIView()
@@ -69,8 +73,9 @@ class SettingsPopup: NSObject {
     //    var delegate: FoodPopupDelegate?
     
     @objc func handleAdd() {
-        //        print(delegate)
-        //        delegate?.shouldAddFood()
+        guard let userID = Auth.auth().currentUser else {return}
+        self.refAllery = Database.database().reference().child("Allergy").child(userID.uid)
+        self.refAllery.setValue(["Allergy": "\(selected)"])
     }
     
     
@@ -140,11 +145,16 @@ extension SettingsPopup: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 15
+        return FoodName.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "banana"
+        return FoodName[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selected = FoodName[row]
+        print(selected)
     }
     
 }
