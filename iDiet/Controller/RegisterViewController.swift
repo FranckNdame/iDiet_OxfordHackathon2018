@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController {
     // MARK: - References
     var ref: DatabaseReference!
     var refCurrent: DatabaseReference!
+    var refAllergy: DatabaseReference!
     var uid = ""
     
     // MARK: - Skeleton
@@ -170,6 +171,9 @@ class RegisterViewController: UIViewController {
                             
                             self.refCurrent = Database.database().reference().child("Status").child(self.uid)
                             self.refCurrent.setValue(["Current": "0", "Sugar": "0", "Fat": "0"])
+                            
+                            self.refAllergy  = Database.database().reference().child("Allergy").child(self.uid)
+                            self.refAllergy.setValue(["Allergy": "null"])
                         })
                         
                         

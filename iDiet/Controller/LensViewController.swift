@@ -19,6 +19,7 @@ class LensViewController: UIViewController {
     var currentTarget = 0
     var currentFat = 0.0
     var currentSugar = 0.0
+    var allergicTo = ""
     var loggedIn = true
     let user = CurrentUser.shared
     
@@ -115,6 +116,7 @@ class LensViewController: UIViewController {
         guard let user = Auth.auth().currentUser else {return}
         if loggedIn == true {
             ObserveCurrent()
+            ObserveAllergy()
         }
     }
     
@@ -173,6 +175,16 @@ class LensViewController: UIViewController {
         })
     }
     
+    func ObserveAllergy() {
+        guard let userID = Auth.auth().currentUser else {return}
+        refCurrent = Database.database().reference().child("Allergy").child(userID.uid)
+        refCurrent.observe(.value, with: { snapshot in
+            
+            let value = snapshot.value as? NSDictionary
+            self.allergicTo = value?["Allergy"] as! String
+        })
+    }
+    
     func addItem() {
 
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
@@ -224,6 +236,18 @@ extension LensViewController: LensDelegate {
         self.itemCalories.text = calories
         self.itemFat.text = fat
         self.itemSugar.text = sugar
+        
+        
+        if title == self.allergicTo {
+            foodLauncher.handleDismissView()
+            available = true
+            let alertController = UIAlertController(title: "Becareful You are allergic to this item", message: "", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     
