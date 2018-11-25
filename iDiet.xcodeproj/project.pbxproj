@@ -17,6 +17,7 @@
 		5B3F347821A9A8B900F62253 /* IntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347721A9A8B900F62253 /* IntakeViewController.swift */; };
 		5B3F347A21A9A9B700F62253 /* LensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347921A9A9B700F62253 /* LensViewController.swift */; };
 		5B3F347C21A9BA2F00F62253 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347B21A9BA2F00F62253 /* Protocols.swift */; };
+		5BCB999721AA0AD5005EC463 /* IntakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB999621AA0AD5005EC463 /* IntakeCell.swift */; };
 		9CC7DD14706767D8C60D1394 /* Pods_iDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4188EE018A127CCF8A1FD6BA /* Pods_iDiet.framework */; };
 		E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6B21A9778B0017D8B4 /* AppDelegate.swift */; };
 		E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6D21A9778B0017D8B4 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 		5B3F347721A9A8B900F62253 /* IntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeViewController.swift; sourceTree = "<group>"; };
 		5B3F347921A9A9B700F62253 /* LensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensViewController.swift; sourceTree = "<group>"; };
 		5B3F347B21A9BA2F00F62253 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		5BCB999621AA0AD5005EC463 /* IntakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeCell.swift; sourceTree = "<group>"; };
 		644DF95E23F4D546FC610AEB /* Pods-iDietUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDietUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		939C87874E50CE89C6C7D9DA /* Pods-iDietUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		5B3F346621A99A3600F62253 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BCB999521AA0AB7005EC463 /* CollectionViewCells */,
 				E05B2C6F21A9778B0017D8B4 /* Main.storyboard */,
 				E05B2C7421A9778C0017D8B4 /* LaunchScreen.storyboard */,
 			);
@@ -174,6 +177,14 @@
 				5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		5BCB999521AA0AB7005EC463 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				5BCB999621AA0AD5005EC463 /* IntakeCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		AD6C720B2FA57BF1BB89A2A6 /* Pods */ = {
@@ -491,6 +502,7 @@
 				E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */,
 				5B3F347C21A9BA2F00F62253 /* Protocols.swift in Sources */,
 				E098C2CE21A996C500ECDE40 /* Inceptionv3.mlmodel in Sources */,
+				5BCB999721AA0AD5005EC463 /* IntakeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
