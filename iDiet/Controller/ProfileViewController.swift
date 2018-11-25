@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var bmiLabel: UILabel!
     @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     // Circular View
     @IBOutlet weak var caloriesView: RingProgressView!
@@ -45,6 +46,7 @@ class ProfileViewController: UIViewController {
     //User Image
     @IBOutlet weak var mainUserImageView: UIImageView!
     @IBOutlet weak var roundedUserImageView: UIImageView!
+    
     
 //    guard let url = URL(string: loggedUser.profileImageUrl!) else {return}
 //    let resource = ImageResource(downloadURL: url, cacheKey: loggedUser.uid)

@@ -1075,7 +1075,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K5W-e1-JQo">
                                                                                 <rect key="frame" x="20" y="0.0" width="325" height="50"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dut-iF-auF">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dut-iF-auF">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="50"/>
                                                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                                                         <nil key="textColor"/>
@@ -1292,6 +1292,7 @@
                         <outlet property="proteinsView" destination="sko-OH-r1V" id="FqK-4O-LzO"/>
                         <outlet property="roundedUserImageView" destination="8cT-Aw-Wjh" id="V6b-gj-5lo"/>
                         <outlet property="scrollView" destination="U6C-dv-Rsu" id="q3D-Vo-fbc"/>
+                        <outlet property="statusLabel" destination="gSN-yC-jeO" id="9Jl-8k-zgT"/>
                         <outlet property="usernameLabel" destination="twg-f9-WoK" id="sK1-NT-eiF"/>
                         <outlet property="weightLabel" destination="WfL-V8-796" id="u6Z-hS-xef"/>
                     </connections>
