@@ -17,6 +17,21 @@ class RegisterViewController: UIViewController {
     var uid = ""
     
     // MARK: - Skeleton
+    let imageView: UIImageView = {
+       let iv = UIImageView()
+        iv.image = #imageLiteral(resourceName: "user1")
+        iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        iv.isUserInteractionEnabled = true
+        return iv
+    }()
+    
+    let chooseImage : UIButton = {
+       let cv = UIButton()
+        cv.backgroundColor = .clear
+        cv.addTarget(self, action: #selector(handleSelectProfileImageView), for: .touchUpInside)
+        return cv
+    }()
+    
     let nameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Full Name"
@@ -75,9 +90,16 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
+        self.view.addSubview(imageView)
+        imageView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
+        imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        self.view.addSubview(chooseImage)
+        chooseImage.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
+        chooseImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         self.view.addSubview(nameTextField)
-        nameTextField.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+        nameTextField.anchor(top: imageView.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
         nameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         self.view.addSubview(emailTextField)
@@ -115,6 +137,13 @@ class RegisterViewController: UIViewController {
         
     }
     
+    @objc func handleSelectProfileImageView() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
     @objc func register() {
         
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
@@ -126,6 +155,17 @@ class RegisterViewController: UIViewController {
                 
                 self.refCurrent = Database.database().reference().child("Status").child(self.uid)
                 self.refCurrent.setValue(["Current": "0"])
+                
+                let storageRef = Storage.storage().reference()
+                if let uploadData = self.imageView.image!.pngData() {
+                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                        if error != nil {
+                            return
+                        }
+                        print(metadata)
+                    })
+                }
+
                 print("You have successfully registered!!")
                 self.dismiss(animated: true, completion: nil)
             } else {
@@ -141,4 +181,29 @@ class RegisterViewController: UIViewController {
         
     }
 
+}
+
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            imageView.image = selectedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
