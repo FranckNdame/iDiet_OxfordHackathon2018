@@ -1,4 +1,5 @@
 PODS:
+  - DynamicBlurView (3.0.1)
   - Firebase/Auth (5.13.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.5)
@@ -71,6 +72,8 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PopupDialog (0.9.1):
+    - DynamicBlurView (~> 3.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -79,9 +82,11 @@ DEPENDENCIES:
   - FirebaseDatabase
   - Kingfisher
   - MKRingProgressView
+  - PopupDialog (~> 0.9)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - DynamicBlurView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -97,8 +102,10 @@ SPEC REPOS:
     - leveldb-library
     - MKRingProgressView
     - nanopb
+    - PopupDialog
 
 SPEC CHECKSUMS:
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
   Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
   FirebaseAuth: 9299ab178271bec7426967b05b2718bb6fc31f17
@@ -114,7 +121,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MKRingProgressView: 6a8eb219f65d1f7ac27ad1986a4f42160b2f7640
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PopupDialog: 03985b669c29802661c187513bf827340db1ae4d
 
-PODFILE CHECKSUM: a2f3e59940b21b685097fc698ad29158f01e8045
+PODFILE CHECKSUM: e22e0f512b89860d1c8ffce26c58fb8e0c58c800
 
 COCOAPODS: 1.5.2

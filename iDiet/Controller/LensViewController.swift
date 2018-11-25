@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PopupDialog
 
 var lensRef: LensViewController?
 class LensViewController: UIViewController {
@@ -196,12 +197,18 @@ class LensViewController: UIViewController {
             self.refInsert.updateChildValues(["Current": "\(toAdd)", "Fat": "\(toAddFat)", "Sugar": "\(toAddSugar)"])
         self.previewView.isHidden = true
         } else {
-            let alertController = UIAlertController(title: "Eating this item would make you go over your daily limit", message: "", preferredStyle: .alert)
+            let title = "Warning"
+            let message = "Eating this item would make you go over your daily limit"
             
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
+            // Create the dialog
+            let popup = PopupDialog(title: title, message: message)
             
-            self.present(alertController, animated: true, completion: nil)
+            // Create buttons
+            let buttonOne = CancelButton(title: "Thank you") {
+            }
+            popup.addButtons([buttonOne])
+            
+            self.present(popup, animated: true, completion: nil)
         }
     }
     
@@ -241,12 +248,19 @@ extension LensViewController: LensDelegate {
         if title == self.allergicTo {
             foodLauncher.handleDismissView()
             available = true
-            let alertController = UIAlertController(title: "Becareful You are allergic to this item", message: "", preferredStyle: .alert)
+            let title = "Warning"
+            let message = "It seems you are allergic to the item detected"
             
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
+            // Create the dialog
+            let popup = PopupDialog(title: title, message: message)
             
-            self.present(alertController, animated: true, completion: nil)
+            // Create buttons
+            let buttonOne = CancelButton(title: "Thank you") {
+            }
+            popup.addButtons([buttonOne])
+            
+            // Present dialog
+            self.present(popup, animated: true, completion: nil)
         }
     }
     

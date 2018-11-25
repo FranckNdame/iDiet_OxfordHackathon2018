@@ -12,6 +12,7 @@ target 'iDiet' do
     pod 'Firebase/Storage'
     pod 'MKRingProgressView'
     pod 'Kingfisher'
+    pod 'PopupDialog', '~> 0.9'
 
 
   target 'iDietTests' do
