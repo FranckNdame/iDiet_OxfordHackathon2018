@@ -83,7 +83,7 @@ class LensViewController: UIViewController {
         return cb
     }()
     
-    lazy var addButton : UIButton = {
+    let addButton : UIButton = {
         let cb = UIButton()
         cb.setTitle("Add Item", for: .normal)
         cb.addTarget(self, action: #selector(addItem), for: .touchUpInside)
@@ -92,26 +92,27 @@ class LensViewController: UIViewController {
         return cb
     }()
     
-    let foodLauncher = FoodPopUp()
+//    let foodLauncher = FoodPopUp()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.previewView.isHidden = true
         lensRef = self
         captureRef?.delegate = self
+        print(lensRef)
         setupView()
-    
+        
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         lensRef = self
         captureRef?.delegate = self
     }
-    override func viewDidAppear(_ animated: Bool) {
-        lensRef = self
+    override func viewWillAppear(_ animated: Bool) {
         captureRef?.delegate = self
         guard let user = Auth.auth().currentUser else {return}
         if loggedIn == true {
-        ObserveCurrent()
+            ObserveCurrent()
         }
     }
     
@@ -169,8 +170,10 @@ class LensViewController: UIViewController {
     
     @objc func addItem() {
 
-        print(delegate)
+//        print(delegate)
         delegate?.shouldRestartCapture()
+//        print(delegate)
+//        print(delegate?.shouldRestartCapture())
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
         if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}

@@ -30,19 +30,27 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     override func viewWillAppear(_ animated: Bool) {
         mainViewRef?.delegate = self
-//        lensRef?.delegate = self
-//        captureRef = self
+        lensRef?.delegate = self
+        captureRef = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         captureRef = self
          lensRef?.delegate = self
         print(lensRef)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        mainViewRef?.delegate = self
+        mainViewRef?.delegate = self
+        captureRef = self
+        lensRef?.delegate = self
+        print(lensRef)
     
         
         captureSession.sessionPreset = .photo
@@ -124,14 +132,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 }
 
 extension CaptureViewController: CaptureDelegate {
-    func mshouldAbortCapture() {
-        available = false
-    }
-    
-    func mshouldRestartCapture() {
-        available = true
-    }
-    
     func shouldAbortCapture() {
 //        captureSession.stopRunning()
         available = false

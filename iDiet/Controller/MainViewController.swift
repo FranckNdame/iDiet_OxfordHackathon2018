@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainViewRef = self
+        print(mainViewRef)
         
     }
     
