@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var avatarView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var navigationUsernameLabel: UILabel!
+    @IBOutlet weak var navigationAvatarView: UIView!
     
     // User stats
     @IBOutlet weak var weightLabel: UILabel!
@@ -50,6 +51,7 @@ class ProfileViewController: UIViewController {
         backgroundView.layer.cornerRadius = 0
         backgroundView.layer.masksToBounds = true
         navigationUsernameLabel.alpha = 0
+        navigationAvatarView.alpha = 0
         guard let user = Auth.auth().currentUser else {return}
         
 
@@ -126,18 +128,21 @@ extension ProfileViewController: UIScrollViewDelegate {
         let yOffset = scrollView.contentOffset.y/150
         
 //        print(1 - yOffset)
-        if yOffset >= 0 && yOffset <= 1 {
+        if 1 - yOffset >= 0 && 1 - yOffset < 1 {
             avatarView.alpha = 1 - yOffset - 0.2
             usernameLabel.alpha = 1 - yOffset - 0.2
             navigationUsernameLabel.alpha = yOffset - 0.2
-        } else if 1 - yOffset >= 0.9  {
+            navigationAvatarView.alpha = yOffset - 0.2
+        } else if 1 - yOffset >= 1  {
             avatarView.alpha = 1
             usernameLabel.alpha = 1
             navigationUsernameLabel.alpha = 0
+            navigationAvatarView.alpha = 0
         } else {
             avatarView.alpha = 0
             usernameLabel.alpha = 0
             navigationUsernameLabel.alpha = 1
+            navigationAvatarView.alpha = 1
         }
     }
 }
