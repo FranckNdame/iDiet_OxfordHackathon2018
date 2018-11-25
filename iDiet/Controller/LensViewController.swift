@@ -185,8 +185,8 @@ class LensViewController: UIViewController {
 //        print(delegate)
 //        print(delegate?.shouldRestartCapture())
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
-        let toAddFat = self.currentTarget + Int(self.itemFat.text!)!
-        let toAddSugar = self.currentTarget + Int(self.itemSugar.text!)!
+        let toAddFat = self.currentFat + Double(self.itemFat.text!)!
+        let toAddSugar = self.currentSugar + Double(self.itemSugar.text!)!
         if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}
         refInsert = Database.database().reference().child("Status").child(userID.uid)

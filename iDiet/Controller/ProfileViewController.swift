@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     var ref: DatabaseReference!
     var refCurrent: DatabaseReference!
     var current = ""
+    var fat = ""
+    var sugar = ""
     
     var logginIn = true
     
@@ -120,8 +122,12 @@ class ProfileViewController: UIViewController {
         refCurrent.observe(.value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
             self.current = value?["Current"] as! String
+            self.fat = value?["Fat"] as! String
+            self.sugar = value?["Sugar"] as! String
             self.calorieLabel.text = "\(self.current)/\(target)cal"
             self.caloriesView.progress = Double(self.current)!/Double(target)!
+            self.proteinsView.progress = Double(self.sugar)!/Double(target)!
+            self.fatsView.progress = Double(self.fat)!/Double(target)!
         })
     }
     
