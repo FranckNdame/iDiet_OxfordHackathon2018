@@ -13,6 +13,7 @@ import Kingfisher
 
 class ProfileViewController: UIViewController {
     
+    var settingsLauncher = SettingsPopup()
     var ref: DatabaseReference!
     var refCurrent: DatabaseReference!
     var current = ""
@@ -136,6 +137,7 @@ class ProfileViewController: UIViewController {
         }
     }
     @IBAction func handleSettings(_ sender: UIButton) {
+        settingsLauncher.showMenu()
     }
 }
 
