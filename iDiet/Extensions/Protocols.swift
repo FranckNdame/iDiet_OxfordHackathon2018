@@ -22,7 +22,7 @@ protocol LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String)
 }
 
-//protocol FoodPopupDelegate {
-//    func shouldAddFood()
-//    func shouldCancelFood()
-//}
+protocol FoodPopupDelegate {
+    func shouldAddFood()
+    func shouldCancelFood()
+}

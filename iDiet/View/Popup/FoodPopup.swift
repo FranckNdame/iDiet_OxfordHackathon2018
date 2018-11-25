@@ -21,9 +21,10 @@ class FoodPopUp: NSObject {
         
     }()
     
-    let containerView: UIView = {
-        let cv = UIView()
+    let containerView: CustomPopUPView = {
+        let cv = CustomPopUPView()
         cv.backgroundColor = .white
+        
         cv.layer.cornerRadius = 25
         return cv
     }()
@@ -37,11 +38,11 @@ class FoodPopUp: NSObject {
         cb.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         return cb
     }()
-//    var delegate: FoodPopupDelegate?
+    var delegate: FoodPopupDelegate?
     
     @objc func handleAdd() {
-//        print(delegate)
-//        delegate?.shouldAddFood()
+        print(delegate)
+        delegate?.shouldAddFood()
     }
     
     
@@ -88,5 +89,10 @@ class FoodPopUp: NSObject {
             self.blackView.removeFromSuperview()
         })
     }
+    
+}
+
+
+class CustomPopUPView: UIView {
     
 }

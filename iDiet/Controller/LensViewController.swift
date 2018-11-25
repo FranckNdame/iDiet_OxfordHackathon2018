@@ -92,7 +92,7 @@ class LensViewController: UIViewController {
         return cb
     }()
     
-//    let foodLauncher = FoodPopUp()
+    let foodLauncher = FoodPopUp()
     
     
     override func viewDidLoad() {
@@ -170,13 +170,13 @@ class LensViewController: UIViewController {
     }
     
     @objc func addItem() {
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 //        print(delegate)
-=======
+//=======
         available = true
         print(delegate)
->>>>>>> 4869a2d7654e62f94146bfae16ec1665c3a06f22
+//>>>>>>> 4869a2d7654e62f94146bfae16ec1665c3a06f22
         delegate?.shouldRestartCapture()
 //        print(delegate)
 //        print(delegate?.shouldRestartCapture())
@@ -184,7 +184,7 @@ class LensViewController: UIViewController {
         if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}
         refInsert = Database.database().reference().child("Status").child(userID.uid)
-        self.refInsert.setValue(["Current": "\(toAdd)"])
+        self.refInsert.updateChildValues(["Current": "\(toAdd)"])
         self.previewView.isHidden = true
         } else {
             let alertController = UIAlertController(title: "Eating this item would make you go over your daily limit", message: "", preferredStyle: .alert)
@@ -198,26 +198,29 @@ class LensViewController: UIViewController {
     
 }
 
-//extension LensViewController: FoodPopupDelegate {
-//    func shouldAddFood() {
-//        addItem()
-//    }
-//    
-//    func shouldCancelFood() {
-//        cancelItem()
-//    }
-//    
-//    
-//}
+extension LensViewController: FoodPopupDelegate {
+    func shouldAddFood() {
+        available = true
+        foodLauncher.handleDismissView()
+    }
+
+    func shouldCancelFood() {
+        available = true
+        foodLauncher.handleDismissView()
+    }
+
+
+}
 
 extension LensViewController: LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String) {
-//        foodLauncher.showMenu()
-//        foodLauncher.delegate = self
+        foodLauncher.showMenu()
+        foodLauncher.delegate = self
+        available = false
         
-        self.previewView.isHidden = false
-        self.itemTitle.text = title
-        self.itemCalories.text = calories
+//        self.previewView.isHidden = false
+//        self.itemTitle.text = title
+//        self.itemCalories.text = calories
     }
     
     
