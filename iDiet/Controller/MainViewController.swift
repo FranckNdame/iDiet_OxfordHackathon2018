@@ -61,10 +61,12 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
+            available = false
             print("UserId: \(Auth.auth().currentUser?.uid ?? "User Not Found!")")
         } else {
             let LoginView = LoginViewController()
             present(LoginView, animated: true, completion: nil)
+            available = true
         }
     }
     
