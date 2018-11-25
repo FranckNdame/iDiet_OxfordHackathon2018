@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B3F346A21A99AA400F62253 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346921A99AA400F62253 /* User.swift */; };
 		5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346B21A99CD900F62253 /* NavigationView.swift */; };
 		5B3F346E21A99CED00F62253 /* NavigationViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */; };
 		5B3F347021A9A74000F62253 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F346F21A9A74000F62253 /* MainViewController.swift */; };
@@ -33,6 +32,8 @@
 		E098C2CA21A98A9100ECDE40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E098C2C921A98A9100ECDE40 /* GoogleService-Info.plist */; };
 		E098C2CC21A9904E00ECDE40 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098C2CB21A9904E00ECDE40 /* CaptureViewController.swift */; };
 		E098C2CE21A996C500ECDE40 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E098C2CD21A996C500ECDE40 /* Inceptionv3.mlmodel */; };
+		E0D6ECA321AA184D008DE95E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D6ECA221AA184D008DE95E /* Extensions.swift */; };
+		E0D6ECA521AA2110008DE95E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D6ECA421AA2110008DE95E /* CurrentUser.swift */; };
 		F85B1AEAC585779978F148A7 /* Pods_iDietUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */; };
 		FAA9CE689D89DF61679E9D4A /* Pods_iDietTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DECEE2DEA73A27EFBFFE8308 /* Pods_iDietTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +60,6 @@
 		3E2756B7FA8CE3E2A5354C93 /* Pods-iDietTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDietTests/Pods-iDietTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4188EE018A127CCF8A1FD6BA /* Pods_iDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDiet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC6C74603F3D96144E69A70 /* Pods-iDietTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDietTests/Pods-iDietTests.release.xcconfig"; sourceTree = "<group>"; };
-		5B3F346921A99AA400F62253 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B3F346B21A99CD900F62253 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		5B3F346D21A99CED00F62253 /* NavigationViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAnimation.swift; sourceTree = "<group>"; };
 		5B3F346F21A9A74000F62253 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +94,8 @@
 		E098C2C921A98A9100ECDE40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E098C2CB21A9904E00ECDE40 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		E098C2CD21A996C500ECDE40 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		E0D6ECA221AA184D008DE95E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E0D6ECA421AA2110008DE95E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		FC544FED9E170D085844BBD8 /* Pods-iDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDiet.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDiet/Pods-iDiet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E098C2CD21A996C500ECDE40 /* Inceptionv3.mlmodel */,
-				5B3F346921A99AA400F62253 /* User.swift */,
+				E0D6ECA421AA2110008DE95E /* CurrentUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +265,7 @@
 			children = (
 				E098C2C521A97B8000ECDE40 /* Anchor Extensions.swift */,
 				5B3F347B21A9BA2F00F62253 /* Protocols.swift */,
+				E0D6ECA221AA184D008DE95E /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,9 +492,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B3F347821A9A8B900F62253 /* IntakeViewController.swift in Sources */,
+				E0D6ECA321AA184D008DE95E /* Extensions.swift in Sources */,
 				E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */,
 				5BB2E1A121AA209D00767016 /* IntakeCollectionViewHeaderCell.swift in Sources */,
 				5B3F347021A9A74000F62253 /* MainViewController.swift in Sources */,
+				E0D6ECA521AA2110008DE95E /* CurrentUser.swift in Sources */,
 				5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */,
 				E098C2CC21A9904E00ECDE40 /* CaptureViewController.swift in Sources */,
 				5B3F347621A9A89200F62253 /* ProfileViewController.swift in Sources */,
@@ -500,7 +505,6 @@
 				E098C2C621A97B8000ECDE40 /* Anchor Extensions.swift in Sources */,
 				5B3F346E21A99CED00F62253 /* NavigationViewAnimation.swift in Sources */,
 				5B3F347221A9A7A300F62253 /* ScrollViewController.swift in Sources */,
-				5B3F346A21A99AA400F62253 /* User.swift in Sources */,
 				E05B2C6E21A9778B0017D8B4 /* ViewController.swift in Sources */,
 				5B3F347A21A9A9B700F62253 /* LensViewController.swift in Sources */,
 				E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */,

@@ -14,11 +14,7 @@ class ProfileViewController: UIViewController {
     
     var ref: DatabaseReference!
     var refCurrent: DatabaseReference!
-    var height = ""
-    var weight = ""
-    var target = ""
     var current = ""
-    var bmi = 0.0
     
     var logginIn = true
     
@@ -62,7 +58,6 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         guard let user = Auth.auth().currentUser else {return}
         if logginIn == true {
-        ObserveCurrent()
         ObserveStats()
         logginIn = false
         }
@@ -80,40 +75,33 @@ class ProfileViewController: UIViewController {
         fatsView.progress = 0.1
     }
     
-    func ObserveCurrent() {
-        guard let userID = Auth.auth().currentUser else {return}
-        refCurrent = Database.database().reference().child("Status").child(userID.uid)
-        refCurrent.observe(.value, with: { snapshot in
-            
-            let value = snapshot.value as? NSDictionary
-            self.current = value?["Current"] as! String
-            self.calorieLabel.text = "\(self.current)/\(self.target)cal"
-            self.caloriesView.progress = Double(self.current)!/Double(self.target)!
-        })
-    }
+
     
     func ObserveStats() {
         guard let user = Auth.auth().currentUser else {return}
-        print(user.uid)
-        ref = Database.database().reference().child("Users").child(user.uid)
-        ref.observe(.value, with: { snapshot in
+        
+        Database.fetchCurrentuser(uid: user.uid) { (user) in
+            guard let weight = user.weight, let height = user.height, let target = user.target else {return}
+            self.calorieLabel.text = "\(self.current)/\(target)cal"
+            self.navigationUsernameLabel.text = user.name
+            self.usernameLabel.text = user.name
+            self.weightLabel.text = "\(weight)kg"
+            self.heightLabel.text = "\(height)cm"
             
+            let bmiValue = bmi(weight: weight, height: height)
+            self.bmiLabel.text = "\(bmiValue)"
+            self.ObserveCurrent(target: target)
+        }
+    }
+    
+    func ObserveCurrent(target: String) {
+        guard let userID = Auth.auth().currentUser else {return}
+        refCurrent = Database.database().reference().child("Status").child(userID.uid)
+        refCurrent.observe(.value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
-            self.height = value?["Height"] as! String
-            self.weight = value?["Weight"] as! String
-            self.target = value?["Target"] as! String
-            self.calorieLabel.text = "\(self.current)/\(value?["Target"] as! String)cal"
-            self.navigationUsernameLabel.text = value?["Name"] as? String
-            self.usernameLabel.text = value?["Name"] as? String
-            self.weightLabel.text = "\(self.weight)kg"
-            self.heightLabel.text = "\(self.height)cm"
-            let heightstart = Int(self.height) ?? 0
-            let heightMeters = Double(heightstart) / 100
-            let heightsquared = Double(heightMeters) * Double(heightMeters)
-            let weightstart = Int(self.weight) ?? 0
-            self.bmi = Double(weightstart)/heightsquared
-            let rounded = Double(round(100*self.bmi)/100)
-            self.bmiLabel.text = "\(rounded)"
+            self.current = value?["Current"] as! String
+            self.calorieLabel.text = "\(self.current)/\(target)cal"
+            self.caloriesView.progress = Double(self.current)!/Double(target)!
         })
     }
     
