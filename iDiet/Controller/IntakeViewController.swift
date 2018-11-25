@@ -32,7 +32,7 @@ class IntakeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundView.layer.cornerRadius = 0
+        backgroundView.layer.cornerRadius = 5
         backgroundView.layer.masksToBounds = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -56,6 +56,7 @@ extension IntakeViewController: UICollectionViewDataSource, UICollectionViewDele
             foodFat.append(values["Fat"] as? String ?? "")
             foodcalorie.append(values["Calories"] as? String ?? "")
             foodSugar.append(values["Sugar"] as? String ?? "")
+            
 
             self.collectionView.reloadData()
             
@@ -74,11 +75,11 @@ extension IntakeViewController: UICollectionViewDataSource, UICollectionViewDele
 //        cell.foodCalories.text = intakeCalories[indexPath.row]
 //        cell.foodPreview.image = intakeImage[indexPath.row]
         
-        cell.foodLabel.text = foodName[indexPath.row]
-        cell.foodCalories.text = foodcalorie[indexPath.row]
-        cell.foodPreview.image = UIImage(named: foodName[indexPath.row])
-        cell.fatsLabel.text = foodFat[indexPath.row]
-        cell.sugarsLabel.text = foodSugar[indexPath.row]
+        cell.foodLabel.text = foodName.reversed()[indexPath.row]
+        cell.foodCalories.text = foodcalorie.reversed()[indexPath.row]
+        cell.foodPreview.image = UIImage(named: foodName.reversed()[indexPath.row])
+        cell.fatsLabel.text = foodFat.reversed()[indexPath.row]
+        cell.sugarsLabel.text = foodSugar.reversed()[indexPath.row]
         return cell
     }
     

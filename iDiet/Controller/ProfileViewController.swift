@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
-        backgroundView.layer.cornerRadius = 0
+        backgroundView.layer.cornerRadius = 5
         backgroundView.layer.masksToBounds = true
         navigationUsernameLabel.alpha = 0
         navigationAvatarView.alpha = 0

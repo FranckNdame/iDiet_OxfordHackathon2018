@@ -201,6 +201,7 @@ class LensViewController: UIViewController {
             self.refHistory.updateChildValues(["Name": "\(self.itemTitle.text!)", "Calories": "\(self.itemCalories.text!)", "Sugar": "\(self.itemSugar.text!)", "Fat": "\(self.itemFat.text!)"])
         self.previewView.isHidden = true
         } else {
+            available = false
             let title = "Warning"
             let message = "Eating this item would make you go over your daily limit"
             
@@ -209,6 +210,7 @@ class LensViewController: UIViewController {
             
             // Create buttons
             let buttonOne = CancelButton(title: "Thank you") {
+                available = true
             }
             popup.addButtons([buttonOne])
             

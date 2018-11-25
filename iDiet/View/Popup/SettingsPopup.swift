@@ -76,6 +76,7 @@ class SettingsPopup: NSObject {
         guard let userID = Auth.auth().currentUser else {return}
         self.refAllery = Database.database().reference().child("Allergy").child(userID.uid)
         self.refAllery.setValue(["Allergy": "\(selected)"])
+        self.handleDismissView()
     }
     
     
