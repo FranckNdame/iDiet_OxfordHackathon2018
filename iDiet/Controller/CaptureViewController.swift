@@ -19,6 +19,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var ref: DatabaseReference!
     var delegate: LensDelegate?
     
+    
     var FoodName: [String] = [String]()
     var FoodCalories: [String] = [String]()
     let captureSession = AVCaptureSession()
@@ -28,6 +29,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     override func viewWillAppear(_ animated: Bool) {
         mainViewRef?.delegate = self
+        lensRef?.delegate = self
         captureRef = self
     }
     
@@ -83,6 +85,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //                        self.itemTitle.text = Food
 //                        print(i)
 //                        self.itemCalories.text = "Calories: \(self.FoodCalories[i])"
+                        self.available = false
                         self.delegate?.foodItem(title: food, calories: "\(self.FoodCalories[i])", fat: "Fat: 100g", sugar: "Sugar: 500g")
                         
                     }

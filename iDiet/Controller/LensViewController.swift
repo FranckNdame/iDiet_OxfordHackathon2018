@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+var lensRef: LensViewController?
 class LensViewController: UIViewController {
     
     // MARK: - References
@@ -18,6 +19,8 @@ class LensViewController: UIViewController {
     var currentTarget = 0
     var loggedIn = true
     let user = CurrentUser.shared
+    
+    var delegate: CaptureDelegate?
     
     // MARK: - Skeleton
     let previewView: UIView = {
@@ -89,15 +92,21 @@ class LensViewController: UIViewController {
         return cb
     }()
     
+    let foodLauncher = FoodPopUp()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.previewView.isHidden = true
+        lensRef = self
         captureRef?.delegate = self
         setupView()
     
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        lensRef = self
+    }
     override func viewWillAppear(_ animated: Bool) {
+        
         guard let user = Auth.auth().currentUser else {return}
         if loggedIn == true {
         ObserveCurrent()
@@ -140,6 +149,7 @@ class LensViewController: UIViewController {
     }
     
     @objc func cancelItem() {
+        delegate?.shouldRestartCapture()
         self.previewView.isHidden = true
         
     }
@@ -155,6 +165,8 @@ class LensViewController: UIViewController {
     }
     
     @objc func addItem() {
+        print(delegate)
+        delegate?.shouldRestartCapture()
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
         if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}
@@ -175,6 +187,7 @@ class LensViewController: UIViewController {
 
 extension LensViewController: LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String) {
+//        foodLauncher.showMenu()
         self.previewView.isHidden = false
         self.itemTitle.text = title
         self.itemCalories.text = calories

@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainViewRef = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

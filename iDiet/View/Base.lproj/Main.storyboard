@@ -1250,9 +1250,11 @@
                         <outlet property="carbsView" destination="msI-8g-hpA" id="jZY-z5-Kam"/>
                         <outlet property="fatsView" destination="eCO-bx-wYV" id="xMj-44-NOY"/>
                         <outlet property="heightLabel" destination="okF-VL-9hb" id="xZZ-Fh-0ad"/>
+                        <outlet property="mainUserImageView" destination="ZUX-Mp-p1b" id="vL4-Wd-Doj"/>
                         <outlet property="navigationAvatarView" destination="Gta-S1-ldZ" id="FJW-Ws-bgG"/>
                         <outlet property="navigationUsernameLabel" destination="wmr-ge-VJS" id="thA-Fd-vFO"/>
                         <outlet property="proteinsView" destination="sko-OH-r1V" id="FqK-4O-LzO"/>
+                        <outlet property="roundedUserImageView" destination="8cT-Aw-Wjh" id="V6b-gj-5lo"/>
                         <outlet property="scrollView" destination="U6C-dv-Rsu" id="q3D-Vo-fbc"/>
                         <outlet property="usernameLabel" destination="twg-f9-WoK" id="sK1-NT-eiF"/>
                         <outlet property="weightLabel" destination="WfL-V8-796" id="u6Z-hS-xef"/>

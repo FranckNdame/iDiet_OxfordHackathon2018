@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import MKRingProgressView
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
@@ -37,6 +38,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var proteinsView: RingProgressView!
     @IBOutlet weak var carbsView: RingProgressView!
     @IBOutlet weak var fatsView: RingProgressView!
+    
+    //User Image
+    @IBOutlet weak var mainUserImageView: UIImageView!
+    @IBOutlet weak var roundedUserImageView: UIImageView!
+    
+//    guard let url = URL(string: loggedUser.profileImageUrl!) else {return}
+//    let resource = ImageResource(downloadURL: url, cacheKey: loggedUser.uid)
+//    self.userProfileImage.kf.setImage(with: resource)
+//    let name = NSNotification.Name(rawValue: "UpdateProfile")
+//    NotificationCenter.default.post(name: name, object: nil)
     
     
     
