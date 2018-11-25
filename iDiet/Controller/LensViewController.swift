@@ -151,6 +151,7 @@ class LensViewController: UIViewController {
     }
     
     @objc func cancelItem() {
+        available = true
         print(delegate)
         delegate?.shouldRestartCapture()
         self.previewView.isHidden = true
@@ -168,7 +169,7 @@ class LensViewController: UIViewController {
     }
     
     @objc func addItem() {
-
+        available = true
         print(delegate)
         delegate?.shouldRestartCapture()
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
