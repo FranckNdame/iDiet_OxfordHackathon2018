@@ -63,7 +63,7 @@ class LensViewController: UIViewController {
     let itemFat : UILabel = {
         let ic = UILabel()
         ic.textColor = .black
-        ic.text = "Fat: 100g"
+        ic.text = "100"
         ic.font = UIFont.systemFont(ofSize: 30, weight: .regular)
         return ic
     }()
@@ -71,7 +71,7 @@ class LensViewController: UIViewController {
     let itemSugar : UILabel = {
         let ic = UILabel()
         ic.textColor = .black
-        ic.text = "Sugar: 10 mg"
+        ic.text = "10"
         ic.font = UIFont.systemFont(ofSize: 30, weight: .regular)
         return ic
     }()
@@ -88,7 +88,7 @@ class LensViewController: UIViewController {
     let addButton : UIButton = {
         let cb = UIButton()
         cb.setTitle("Add Item", for: .normal)
-        cb.addTarget(self, action: #selector(addItem), for: .touchUpInside)
+
         cb.layer.cornerRadius = 8
         cb.backgroundColor = .orange
         return cb
@@ -173,17 +173,8 @@ class LensViewController: UIViewController {
         })
     }
     
-    @objc func addItem() {
-//<<<<<<< HEAD
+    func addItem() {
 
-//        print(delegate)
-//=======
-        available = true
-        print(delegate)
-//>>>>>>> 4869a2d7654e62f94146bfae16ec1665c3a06f22
-        delegate?.shouldRestartCapture()
-//        print(delegate)
-//        print(delegate?.shouldRestartCapture())
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
         let toAddFat = self.currentFat + Double(self.itemFat.text!)!
         let toAddSugar = self.currentSugar + Double(self.itemSugar.text!)!
@@ -207,12 +198,15 @@ class LensViewController: UIViewController {
 extension LensViewController: FoodPopupDelegate {
     func shouldAddFood() {
         available = true
+//        addItem()
         foodLauncher.handleDismissView()
     }
 
     func shouldCancelFood() {
         available = true
+        foodLauncher.foodName.text = ""
         foodLauncher.handleDismissView()
+        
     }
 
 
@@ -220,7 +214,7 @@ extension LensViewController: FoodPopupDelegate {
 
 extension LensViewController: LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String) {
-        foodLauncher.showMenu()
+        foodLauncher.showMenu(title: title, calories: calories, fat: fat, sugar: sugar)
         foodLauncher.delegate = self
         available = false
         

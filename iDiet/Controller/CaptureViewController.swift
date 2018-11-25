@@ -25,6 +25,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     
     var FoodCalories: [String] = [String]()
+    var FoodSugar: [String] = [String]()
+    var FoodFat: [String] = [String]()
     let captureSession = AVCaptureSession()
    
    
@@ -102,7 +104,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //                        print(i)
 //                        self.itemCalories.text = "Calories: \(self.FoodCalories[i])"
                         available = false
-                        self.delegate?.foodItem(title: food, calories: "\(self.FoodCalories[i])", fat: "Fat: 100g", sugar: "Sugar: 500g")
+                        self.delegate?.foodItem(title: food, calories: "\(self.FoodCalories[i])", fat: "\(self.FoodFat[i])", sugar: "\(self.FoodSugar[i])")
                         
                     }
                     i = i + 1
@@ -125,6 +127,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             let value = snapshot.value as? NSDictionary
             FoodName.append(value?["Name"] as! String)
             self.FoodCalories.append(value?["Calories"] as! String)
+            self.FoodSugar.append(value?["Sugar"] as! String)
+            self.FoodFat.append(value?["Fat"] as! String)
             print("here")
         })
     }
