@@ -107,7 +107,7 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
         button.setTitle("Register", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.isEnabled = false
+        button.isEnabled = true
         button.addTarget(self, action: #selector(register), for: .touchUpInside)
         return button
     }()
@@ -141,45 +141,14 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
         chooseImage.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 64, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
         chooseImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        let stackView = UIStackView(arrangedSubviews: [nameTextField,emailTextField,passwordTextField,heightTextField,weightTextField,CalorieTargerTextField])
+        let stackView = UIStackView(arrangedSubviews: [nameTextField,emailTextField,passwordTextField,heightTextField,weightTextField,CalorieTargerTextField,RegisterButton])
         stackView.distribution = .fillEqually
         stackView.spacing = 15
         stackView.axis = .vertical
         
         scrollView.addSubview(stackView)
-        stackView.anchor(top: chooseImage.bottomAnchor, left: scrollView.leftAnchor, right: scrollView.rightAnchor, bottom: nil, paddingTop: 64, paddingLeft: 32, paddingRight: 32, paddingBottom: 0, width: 0, height: 400)
+        stackView.anchor(top: chooseImage.bottomAnchor, left: scrollView.leftAnchor, right: scrollView.rightAnchor, bottom: nil, paddingTop: 64, paddingLeft: 32, paddingRight: 32, paddingBottom: 0, width: 0, height: 370)
         
-//        scrollView.addSubview(nameTextField)
-//        nameTextField.anchor(top: imageView.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        nameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        scrollView.addSubview(emailTextField)
-//        emailTextField.anchor(top: nameTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        emailTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        scrollView.addSubview(passwordTextField)
-//        passwordTextField.anchor(top: emailTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        scrollView.addSubview(heightTextField)
-//        heightTextField.anchor(top: passwordTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        heightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        scrollView.addSubview(weightTextField)
-//        weightTextField.anchor(top: heightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        weightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        scrollView.addSubview(CalorieTargerTextField)
-//        CalorieTargerTextField.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        CalorieTargerTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        scrollView.addSubview(RegisterButton)
-//        RegisterButton.anchor(top: CalorieTargerTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        RegisterButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        
-//        scrollView.addSubview(LoginButton)
-//        LoginButton.anchor(top: RegisterButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-//        LoginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         scrollView.addSubview(signupButton)
         signupButton.anchor(top: nil, left: scrollView.leftAnchor, right: scrollView.rightAnchor, bottom: scrollView.safeAreaLayoutGuide.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 2, width: 0, height: 0)
         signupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
