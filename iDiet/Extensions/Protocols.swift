@@ -13,10 +13,10 @@ protocol CaptureDelegate {
     func shouldRestartCapture()
 }
 
-protocol DueceCaptureDelegate {
-    func mshouldAbortCapture()
-    func mshouldRestartCapture()
-}
+//protocol DueceCaptureDelegate {
+//    func mshouldAbortCapture()
+//    func mshouldRestartCapture()
+//}
 
 protocol LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String)

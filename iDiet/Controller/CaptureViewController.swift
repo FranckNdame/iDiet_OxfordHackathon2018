@@ -11,6 +11,8 @@ import AVKit
 import Vision
 import Firebase
 
+var FoodName: [String] = [String]()
+
 var captureRef: CaptureViewController?
 
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -20,7 +22,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var delegate: LensDelegate?
     
     
-    var FoodName: [String] = [String]()
+    
     var FoodCalories: [String] = [String]()
     let captureSession = AVCaptureSession()
    
@@ -29,13 +31,14 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     override func viewWillAppear(_ animated: Bool) {
         mainViewRef?.delegate = self
-        lensRef?.delegate = self
-        captureRef = self
+//        lensRef?.delegate = self
+//        captureRef = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         captureRef = self
          lensRef?.delegate = self
+        print(lensRef)
     }
     
     override func viewDidLoad() {
@@ -121,7 +124,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 
 }
 
-extension CaptureViewController: CaptureDelegate, DueceCaptureDelegate {
+extension CaptureViewController: CaptureDelegate {
     func mshouldAbortCapture() {
         available = false
     }
