@@ -106,10 +106,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                         if food == "packet" {
                             available = false
                             self.delegate?.foodItem(title: "cupcake", calories: "\(self.FoodCalories[i])", fat: "\(self.FoodFat[i])", sugar: "\(self.FoodSugar[i])")
-                        }
-                        if food == "burrito" || food == "meat loaf"{
-                            available = false
-                            self.delegate?.foodItem(title: "sandwich", calories: "\(self.FoodCalories[i])", fat: "\(self.FoodFat[i])", sugar: "\(self.FoodSugar[i])")
                         } else {
                         available = false
                         self.delegate?.foodItem(title: food, calories: "\(self.FoodCalories[i])", fat: "\(self.FoodFat[i])", sugar: "\(self.FoodSugar[i])")
