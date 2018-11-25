@@ -33,6 +33,10 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         captureRef = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        captureRef = self
+         lensRef?.delegate = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +121,15 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 
 }
 
-extension CaptureViewController: CaptureDelegate {
+extension CaptureViewController: CaptureDelegate, DueceCaptureDelegate {
+    func mshouldAbortCapture() {
+        available = false
+    }
+    
+    func mshouldRestartCapture() {
+        available = true
+    }
+    
     func shouldAbortCapture() {
 //        captureSession.stopRunning()
         available = false

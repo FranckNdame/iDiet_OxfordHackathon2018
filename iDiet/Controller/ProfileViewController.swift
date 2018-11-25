@@ -135,6 +135,8 @@ class ProfileViewController: UIViewController {
             present(LoginView, animated: true, completion: nil)
         }
     }
+    @IBAction func handleSettings(_ sender: UIButton) {
+    }
 }
 
 // MARK: - ColoredView

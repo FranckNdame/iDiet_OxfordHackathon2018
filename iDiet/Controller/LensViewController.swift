@@ -20,7 +20,7 @@ class LensViewController: UIViewController {
     var loggedIn = true
     let user = CurrentUser.shared
     
-    var delegate: CaptureDelegate?
+    var delegate: DueceCaptureDelegate?
     
     // MARK: - Skeleton
     let previewView: UIView = {
@@ -104,9 +104,10 @@ class LensViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         lensRef = self
+        captureRef?.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        captureRef?.delegate = self
         guard let user = Auth.auth().currentUser else {return}
         if loggedIn == true {
         ObserveCurrent()
@@ -149,7 +150,7 @@ class LensViewController: UIViewController {
     }
     
     @objc func cancelItem() {
-        delegate?.shouldRestartCapture()
+        delegate?.mshouldRestartCapture()
         self.previewView.isHidden = true
         
     }
@@ -165,8 +166,9 @@ class LensViewController: UIViewController {
     }
     
     @objc func addItem() {
+
         print(delegate)
-        delegate?.shouldRestartCapture()
+        delegate?.mshouldRestartCapture()
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
         if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}
@@ -185,9 +187,23 @@ class LensViewController: UIViewController {
     
 }
 
+//extension LensViewController: FoodPopupDelegate {
+//    func shouldAddFood() {
+//        addItem()
+//    }
+//    
+//    func shouldCancelFood() {
+//        cancelItem()
+//    }
+//    
+//    
+//}
+
 extension LensViewController: LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String) {
 //        foodLauncher.showMenu()
+//        foodLauncher.delegate = self
+        
         self.previewView.isHidden = false
         self.itemTitle.text = title
         self.itemCalories.text = calories

@@ -13,6 +13,16 @@ protocol CaptureDelegate {
     func shouldRestartCapture()
 }
 
+protocol DueceCaptureDelegate {
+    func mshouldAbortCapture()
+    func mshouldRestartCapture()
+}
+
 protocol LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String)
 }
+
+//protocol FoodPopupDelegate {
+//    func shouldAddFood()
+//    func shouldCancelFood()
+//}
