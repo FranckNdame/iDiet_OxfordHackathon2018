@@ -132,6 +132,10 @@ class RegisterViewController: UIViewController {
         LoginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        available = false
+    }
+    
     // MARK: - Functions
     @objc func login() {
         dismiss(animated: true, completion: nil)

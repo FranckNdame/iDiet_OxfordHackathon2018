@@ -108,6 +108,10 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        available = false
+    }
+    
     fileprivate func setupContainerView() {
         logoContainerView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 150)
     }
@@ -144,6 +148,7 @@ class LoginViewController: UIViewController {
     @objc func handleLogin() {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error == nil {
+                available = true
                 self.dismiss(animated: true, completion: nil)
             } else {
                 let alertController = UIAlertController(title: "Incorrect Username or Password!!", message: error?.localizedDescription, preferredStyle: .alert)
