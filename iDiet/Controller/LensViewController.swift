@@ -198,7 +198,8 @@ class LensViewController: UIViewController {
 extension LensViewController: FoodPopupDelegate {
     func shouldAddFood() {
         available = true
-//        addItem()
+        addItem()
+        
         foodLauncher.handleDismissView()
     }
 
@@ -217,10 +218,12 @@ extension LensViewController: LensDelegate {
         foodLauncher.showMenu(title: title, calories: calories, fat: fat, sugar: sugar)
         foodLauncher.delegate = self
         available = false
-        
+
 //        self.previewView.isHidden = false
-//        self.itemTitle.text = title
-//        self.itemCalories.text = calories
+        self.itemTitle.text = title
+        self.itemCalories.text = calories
+        self.itemFat.text = fat
+        self.itemSugar.text = sugar
     }
     
     
