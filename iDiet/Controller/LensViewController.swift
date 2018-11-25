@@ -198,7 +198,7 @@ class LensViewController: UIViewController {
             self.refInsert.updateChildValues(["Current": "\(toAdd)", "Fat": "\(toAddFat)", "Sugar": "\(toAddSugar)"])
             
             refHistory = Database.database().reference().child("History").child(userID.uid).childByAutoId()
-            self.refHistory.updateChildValues(["Name": "\(self.itemTitle.text!)", "Calories": "\(self.itemCalories.text!)", "Sugar": "\(self.itemSugar.text!)", "Name": "\(self.itemFat.text!)"])
+            self.refHistory.updateChildValues(["Name": "\(self.itemTitle.text!)", "Calories": "\(self.itemCalories.text!)", "Sugar": "\(self.itemSugar.text!)", "Fat": "\(self.itemFat.text!)"])
         self.previewView.isHidden = true
         } else {
             let title = "Warning"
