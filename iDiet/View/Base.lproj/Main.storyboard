@@ -355,7 +355,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ehn-sK-HeC">
                                                                             <rect key="frame" x="0.0" y="18.333333333333329" width="98.333333333333329" height="17.333333333333329"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="carbs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbv-nQ-jMp">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbv-nQ-jMp">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="17.333333333333332"/>
                                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                                     <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -372,7 +372,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vfB-cu-gXP">
                                                                             <rect key="frame" x="0.0" y="36.666666666666657" width="98.333333333333329" height="17.333333333333329"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT0-3q-2Ng">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sugars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT0-3q-2Ng">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="46.666666666666664" height="17.333333333333332"/>
                                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                                     <color key="textColor" red="0.17719752688281087" green="0.63180123730964466" blue="0.24723457002239874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -437,9 +437,11 @@
                                         </constraints>
                                         <size key="customSize" width="350" height="140"/>
                                         <connections>
+                                            <outlet property="fatsLabel" destination="YuD-Zi-vXN" id="zhL-w8-Lns"/>
                                             <outlet property="foodCalories" destination="z6T-yQ-pmg" id="Xi0-og-WD0"/>
                                             <outlet property="foodLabel" destination="ad9-gk-GoJ" id="DAi-9j-AwQ"/>
                                             <outlet property="foodPreview" destination="Iel-XS-sSs" id="tUF-2L-ob5"/>
+                                            <outlet property="sugarsLabel" destination="DO4-u2-TfN" id="QrD-X2-div"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

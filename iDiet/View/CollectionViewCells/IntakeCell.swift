@@ -13,6 +13,8 @@ class IntakeCell: UICollectionViewCell {
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var foodPreview: UIImageView!
     @IBOutlet weak var foodCalories: UILabel!
+    @IBOutlet weak var fatsLabel: UILabel!
+    @IBOutlet weak var sugarsLabel: UILabel!
 }
 
 let intakeImage = [#imageLiteral(resourceName: "rice"),#imageLiteral(resourceName: "burger"),#imageLiteral(resourceName: "watermelon1"),#imageLiteral(resourceName: "pizza1"),#imageLiteral(resourceName: "coconut"),#imageLiteral(resourceName: "pasta"),#imageLiteral(resourceName: "chicken")]
