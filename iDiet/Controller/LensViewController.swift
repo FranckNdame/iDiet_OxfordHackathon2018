@@ -17,6 +17,8 @@ class LensViewController: UIViewController {
     var refCurrent: DatabaseReference!
     
     var currentTarget = 0
+    var currentFat = 0.0
+    var currentSugar = 0.0
     var loggedIn = true
     let user = CurrentUser.shared
     
@@ -166,6 +168,8 @@ class LensViewController: UIViewController {
             
             let value = snapshot.value as? NSDictionary
             self.currentTarget = Int(value?["Current"] as! String) ?? 0
+            self.currentFat = Double(value?["Fat"] as! String) ?? 0
+            self.currentSugar = Double(value?["Sugar"] as! String) ?? 0
         })
     }
     
@@ -181,10 +185,12 @@ class LensViewController: UIViewController {
 //        print(delegate)
 //        print(delegate?.shouldRestartCapture())
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
+        let toAddFat = self.currentTarget + Int(self.itemFat.text!)!
+        let toAddSugar = self.currentTarget + Int(self.itemSugar.text!)!
         if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}
         refInsert = Database.database().reference().child("Status").child(userID.uid)
-        self.refInsert.updateChildValues(["Current": "\(toAdd)"])
+            self.refInsert.updateChildValues(["Current": "\(toAdd)", "Fat": "\(toAddFat)", "Sugar": "\(toAddSugar)"])
         self.previewView.isHidden = true
         } else {
             let alertController = UIAlertController(title: "Eating this item would make you go over your daily limit", message: "", preferredStyle: .alert)
