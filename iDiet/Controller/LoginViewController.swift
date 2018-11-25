@@ -106,6 +106,29 @@ class LoginViewController: UIViewController {
         setupLoginForm()
         setupFooter()
         
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        
+        //creating flexible space
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        // creating button
+        let addButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
+        
+        // adding space and button to toolbar
+        keyboardToolbar.setItems([flexibleSpace,addButton], animated: false)
+        emailTextField.inputAccessoryView = keyboardToolbar
+        
+
+        
+        // adding toolbar to input accessory view
+        passwordTextField.inputAccessoryView = keyboardToolbar
+
+        
+    }
+    
+    @objc func doneClicked() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
