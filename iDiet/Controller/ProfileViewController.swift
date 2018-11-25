@@ -108,6 +108,16 @@ class ProfileViewController: UIViewController {
             
             let bmiValue = bmi(weight: weight, height: height)
             self.bmiLabel.text = "\(bmiValue)"
+            if bmiValue >= 30 {
+                self.statusLabel.text = "Obese"
+            } else if bmiValue >= 25 && bmiValue <= 29.9  {
+                self.statusLabel.text = "Overweight"
+            } else if bmiValue >= 18.5 && bmiValue <= 24.9 {
+                self.statusLabel.text = "Normal weight"
+            } else if bmiValue < 18.5 {
+                self.statusLabel.text = "Underweight"
+            }
+            
             self.ObserveCurrent(target: target)
             
                 guard let url = URL(string: user.image!) else {return}
