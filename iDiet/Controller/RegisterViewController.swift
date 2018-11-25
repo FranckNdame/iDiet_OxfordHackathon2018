@@ -169,7 +169,7 @@ class RegisterViewController: UIViewController {
                             self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!, "Target": self.CalorieTargerTextField.text!, "Image": profileImageUrl])
                             
                             self.refCurrent = Database.database().reference().child("Status").child(self.uid)
-                            self.refCurrent.setValue(["Current": "0"])
+                            self.refCurrent.setValue(["Current": "0", "Sugar": "0", "Fat": "0"])
                         })
                         
                         
