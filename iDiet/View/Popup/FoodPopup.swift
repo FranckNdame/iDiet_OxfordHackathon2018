@@ -121,7 +121,7 @@ class FoodPopUp: NSObject {
     
     @objc func handleCancel() {
         print(delegate)
-        delegate?.shouldAddFood()
+        delegate?.shouldCancelFood()
     }
     
     // name, caolries, fats, sugar
