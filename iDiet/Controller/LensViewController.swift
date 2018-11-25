@@ -152,6 +152,7 @@ class LensViewController: UIViewController {
     }
     
     @objc func cancelItem() {
+        available = true
         print(delegate)
         delegate?.shouldRestartCapture()
         self.previewView.isHidden = true
@@ -169,8 +170,13 @@ class LensViewController: UIViewController {
     }
     
     @objc func addItem() {
+<<<<<<< HEAD
 
 //        print(delegate)
+=======
+        available = true
+        print(delegate)
+>>>>>>> 4869a2d7654e62f94146bfae16ec1665c3a06f22
         delegate?.shouldRestartCapture()
 //        print(delegate)
 //        print(delegate?.shouldRestartCapture())

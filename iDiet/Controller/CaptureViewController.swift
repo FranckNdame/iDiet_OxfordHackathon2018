@@ -14,6 +14,8 @@ import Firebase
 var FoodName: [String] = [String]()
 var captureRef: CaptureViewController?
 
+ var available = true
+
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     // MARK: - References
@@ -25,7 +27,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var FoodCalories: [String] = [String]()
     let captureSession = AVCaptureSession()
    
-    var available = true
+   
     var loop = 1
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,7 +101,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //                        self.itemTitle.text = Food
 //                        print(i)
 //                        self.itemCalories.text = "Calories: \(self.FoodCalories[i])"
-                        self.available = false
+                        available = false
                         self.delegate?.foodItem(title: food, calories: "\(self.FoodCalories[i])", fat: "Fat: 100g", sugar: "Sugar: 500g")
                         
                     }
