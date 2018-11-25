@@ -17,6 +17,7 @@ class LensViewController: UIViewController {
     
     var currentTarget = 0
     var loggedIn = true
+    let user = CurrentUser.shared
     
     // MARK: - Skeleton
     let previewView: UIView = {
@@ -155,10 +156,19 @@ class LensViewController: UIViewController {
     
     @objc func addItem() {
         let toAdd = self.currentTarget + Int(self.itemCalories.text!)!
+        if Int(user.target ?? "0") ?? 0 >= toAdd{
         guard let userID = Auth.auth().currentUser else {return}
         refInsert = Database.database().reference().child("Status").child(userID.uid)
         self.refInsert.setValue(["Current": "\(toAdd)"])
         self.previewView.isHidden = true
+        } else {
+            let alertController = UIAlertController(title: "Eating this item would make you go over your daily limit", message: "", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
 }
