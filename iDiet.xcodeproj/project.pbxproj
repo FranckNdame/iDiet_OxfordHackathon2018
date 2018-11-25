@@ -17,6 +17,7 @@
 		5B3F347821A9A8B900F62253 /* IntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347721A9A8B900F62253 /* IntakeViewController.swift */; };
 		5B3F347A21A9A9B700F62253 /* LensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347921A9A9B700F62253 /* LensViewController.swift */; };
 		5B3F347C21A9BA2F00F62253 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F347B21A9BA2F00F62253 /* Protocols.swift */; };
+		5BB2E1A121AA209D00767016 /* IntakeCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB2E1A021AA209D00767016 /* IntakeCollectionViewHeaderCell.swift */; };
 		5BCB999721AA0AD5005EC463 /* IntakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB999621AA0AD5005EC463 /* IntakeCell.swift */; };
 		9CC7DD14706767D8C60D1394 /* Pods_iDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4188EE018A127CCF8A1FD6BA /* Pods_iDiet.framework */; };
 		E05B2C6C21A9778B0017D8B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05B2C6B21A9778B0017D8B4 /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 		5B3F347721A9A8B900F62253 /* IntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeViewController.swift; sourceTree = "<group>"; };
 		5B3F347921A9A9B700F62253 /* LensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensViewController.swift; sourceTree = "<group>"; };
 		5B3F347B21A9BA2F00F62253 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		5BB2E1A021AA209D00767016 /* IntakeCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		5BCB999621AA0AD5005EC463 /* IntakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeCell.swift; sourceTree = "<group>"; };
 		644DF95E23F4D546FC610AEB /* Pods-iDietUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDietUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDietUITests/Pods-iDietUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86985581E6B49DF7879D7D4B /* Pods_iDietUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDietUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				5BCB999621AA0AD5005EC463 /* IntakeCell.swift */,
+				5BB2E1A021AA209D00767016 /* IntakeCollectionViewHeaderCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 			files = (
 				5B3F347821A9A8B900F62253 /* IntakeViewController.swift in Sources */,
 				E098C2C221A9797500ECDE40 /* LoginViewController.swift in Sources */,
+				5BB2E1A121AA209D00767016 /* IntakeCollectionViewHeaderCell.swift in Sources */,
 				5B3F347021A9A74000F62253 /* MainViewController.swift in Sources */,
 				5B3F346C21A99CD900F62253 /* NavigationView.swift in Sources */,
 				E098C2CC21A9904E00ECDE40 /* CaptureViewController.swift in Sources */,
