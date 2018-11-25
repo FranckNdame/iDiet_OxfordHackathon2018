@@ -16,6 +16,7 @@ class LensViewController: UIViewController {
     // MARK: - References
     var refInsert: DatabaseReference!
     var refCurrent: DatabaseReference!
+    var refHistory: DatabaseReference!
     
     var currentTarget = 0
     var currentFat = 0.0
@@ -195,6 +196,9 @@ class LensViewController: UIViewController {
         guard let userID = Auth.auth().currentUser else {return}
         refInsert = Database.database().reference().child("Status").child(userID.uid)
             self.refInsert.updateChildValues(["Current": "\(toAdd)", "Fat": "\(toAddFat)", "Sugar": "\(toAddSugar)"])
+            
+            refHistory = Database.database().reference().child("History").child(userID.uid).childByAutoId()
+            self.refHistory.updateChildValues(["Name": "\(self.itemTitle.text!)", "Calories": "\(self.itemCalories.text!)", "Sugar": "\(self.itemSugar.text!)", "Name": "\(self.itemFat.text!)"])
         self.previewView.isHidden = true
         } else {
             let title = "Warning"
