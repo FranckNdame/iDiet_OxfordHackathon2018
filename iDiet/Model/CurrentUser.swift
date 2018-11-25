@@ -19,6 +19,7 @@ class CurrentUser {
     var weight: String?
     var height: String?
     var target: String?
+    var image: String?
 }
 
 extension Database {
@@ -33,6 +34,7 @@ extension Database {
             user.weight = dictionary["Weight"] as? String ?? ""
             user.height = dictionary["Height"] as? String ?? ""
             user.target = dictionary["Target"] as? String ?? ""
+            user.image = dictionary["Image"] as? String ?? ""
             
             completion(user)
         }) { (err) in

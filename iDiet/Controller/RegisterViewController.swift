@@ -149,22 +149,35 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
             if error == nil {
                 guard let user = authResult?.user else { return }
-                self.uid = user.uid
-                self.ref = Database.database().reference().child("Users").child(self.uid)
-                self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!, "Target": self.CalorieTargerTextField.text!])
                 
-                self.refCurrent = Database.database().reference().child("Status").child(self.uid)
-                self.refCurrent.setValue(["Current": "0"])
-                
-                let storageRef = Storage.storage().reference()
+                let storageRef = Storage.storage().reference().child("users").child("\(user.uid).png")
                 if let uploadData = self.imageView.image!.pngData() {
                     storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                         if error != nil {
                             return
                         }
-                        print(metadata)
+                        
+                        storageRef.downloadURL(completion: { (url, err) in
+                            if let err = err {
+                                return
+                            }
+                            
+                            guard let profileImageUrl = url?.absoluteString else {return}
+                            
+                            self.uid = user.uid
+                            self.ref = Database.database().reference().child("Users").child(self.uid)
+                            self.ref.setValue(["Name": self.nameTextField.text!, "Email": self.emailTextField.text!, "Password": self.passwordTextField.text!, "Height": self.heightTextField.text!, "Weight": self.weightTextField.text!, "Target": self.CalorieTargerTextField.text!, "Image": profileImageUrl])
+                            
+                            self.refCurrent = Database.database().reference().child("Status").child(self.uid)
+                            self.refCurrent.setValue(["Current": "0"])
+                        })
+                        
+                        
+                
                     })
                 }
+            
+            
 
                 print("You have successfully registered!!")
                 self.dismiss(animated: true, completion: nil)
