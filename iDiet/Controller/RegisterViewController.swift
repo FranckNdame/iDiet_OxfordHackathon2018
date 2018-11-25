@@ -30,7 +30,7 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
     
     let imageView: UIImageView = {
        let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "user")
+        iv.image = #imageLiteral(resourceName: "user-silhouette-gray")
         iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
         iv.isUserInteractionEnabled = true
         return iv
@@ -46,55 +46,83 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
     let nameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Full Name"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     
     let emailTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Email Address"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
+        tf.keyboardType = .emailAddress
         return tf
     }()
     
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     
     let heightTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Height"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     
     let weightTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Weight"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     
     let CalorieTargerTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Maximum Calorie Target"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
     
     let RegisterButton: UIButton = {
-        let rb = UIButton()
-        rb.setTitle("Register", for: .normal)
-        rb.backgroundColor = .green
-        rb.layer.cornerRadius = 10
-        rb.addTarget(self, action: #selector(register), for: .touchUpInside)
-        return rb
+        
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 5
+        button.setTitle("Register", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(register), for: .touchUpInside)
+        return button
     }()
     
-    let LoginButton: UIButton = {
-        let rb = UIButton()
-        rb.setTitle("Already Registered?", for: .normal)
-        rb.backgroundColor = .green
-        rb.layer.cornerRadius = 10
-        rb.addTarget(self, action: #selector(login), for: .touchUpInside)
-        return rb
+    
+    let signupButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account?  ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        
+        attributedTitle.append(NSAttributedString(string: "Login now", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 154/255, blue:237/255, alpha: 1), NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(login), for: .touchUpInside)
+        
+        return button
     }()
 
     override func viewDidLoad() {
@@ -102,47 +130,59 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
         self.view.backgroundColor = .white
         scrollView.delegate = self
         self.view.addSubview(scrollView)
+        scrollView.backgroundColor = .white
         scrollView.anchor(top: self.view.topAnchor, left: self.view.leftAnchor, right: self.view.rightAnchor, bottom: self.view.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
         
         scrollView.addSubview(imageView)
-        scrollView.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 64, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
-        scrollView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        imageView.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 64, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
+        imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
         scrollView.addSubview(chooseImage)
-        chooseImage.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
+        chooseImage.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 64, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
         chooseImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        scrollView.addSubview(nameTextField)
-        nameTextField.anchor(top: imageView.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        nameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        let stackView = UIStackView(arrangedSubviews: [nameTextField,emailTextField,passwordTextField,heightTextField,weightTextField,CalorieTargerTextField])
+        stackView.distribution = .fillEqually
+        stackView.spacing = 15
+        stackView.axis = .vertical
         
-        scrollView.addSubview(emailTextField)
-        emailTextField.anchor(top: nameTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        emailTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        scrollView.addSubview(stackView)
+        stackView.anchor(top: chooseImage.bottomAnchor, left: scrollView.leftAnchor, right: scrollView.rightAnchor, bottom: nil, paddingTop: 64, paddingLeft: 32, paddingRight: 32, paddingBottom: 0, width: 0, height: 400)
         
-        scrollView.addSubview(passwordTextField)
-        passwordTextField.anchor(top: emailTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//        scrollView.addSubview(nameTextField)
+//        nameTextField.anchor(top: imageView.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        nameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//
+//        scrollView.addSubview(emailTextField)
+//        emailTextField.anchor(top: nameTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        emailTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//
+//        scrollView.addSubview(passwordTextField)
+//        passwordTextField.anchor(top: emailTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//
+//        scrollView.addSubview(heightTextField)
+//        heightTextField.anchor(top: passwordTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        heightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//
+//        scrollView.addSubview(weightTextField)
+//        weightTextField.anchor(top: heightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        weightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//
+//        scrollView.addSubview(CalorieTargerTextField)
+//        CalorieTargerTextField.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        CalorieTargerTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//
+//        scrollView.addSubview(RegisterButton)
+//        RegisterButton.anchor(top: CalorieTargerTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        RegisterButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        scrollView.addSubview(heightTextField)
-        heightTextField.anchor(top: passwordTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        heightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        
-        scrollView.addSubview(weightTextField)
-        weightTextField.anchor(top: heightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        weightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        
-        scrollView.addSubview(CalorieTargerTextField)
-        CalorieTargerTextField.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        CalorieTargerTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        
-        scrollView.addSubview(RegisterButton)
-        RegisterButton.anchor(top: CalorieTargerTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        RegisterButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        
-        scrollView.addSubview(LoginButton)
-        LoginButton.anchor(top: RegisterButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        LoginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//        scrollView.addSubview(LoginButton)
+//        LoginButton.anchor(top: RegisterButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
+//        LoginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        scrollView.addSubview(signupButton)
+        signupButton.anchor(top: nil, left: scrollView.leftAnchor, right: scrollView.rightAnchor, bottom: scrollView.safeAreaLayoutGuide.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 2, width: 0, height: 0)
+        signupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
@@ -263,3 +303,5 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
 }
+
+

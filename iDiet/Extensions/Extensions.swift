@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 
 func bmi(weight: String, height:String) -> Double {
@@ -18,3 +19,17 @@ func bmi(weight: String, height:String) -> Double {
     let bmi = Double(weightstart)/heightsquared
     return Double(round(100*bmi)/100)
 }
+var audioPlayer : AVAudioPlayer!
+func playSound(_ soundFile: String, withExtension ext: String) {
+    let soundURL = Bundle.main.url(forResource: soundFile, withExtension: ext)!
+    
+    do {
+        try audioPlayer = AVAudioPlayer(contentsOf: soundURL)
+    }
+    catch {
+        print(error)
+    }
+    audioPlayer.play()
+}
+
+let impact = UIImpactFeedbackGenerator()

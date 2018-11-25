@@ -15,6 +15,6 @@ class IntakeCell: UICollectionViewCell {
     @IBOutlet weak var foodCalories: UILabel!
 }
 
-let intakeImage = [#imageLiteral(resourceName: "pasta"),#imageLiteral(resourceName: "burger"),#imageLiteral(resourceName: "watermelon"),#imageLiteral(resourceName: "pizza"),#imageLiteral(resourceName: "coconut"),#imageLiteral(resourceName: "pasta"),#imageLiteral(resourceName: "chicken")]
+let intakeImage = [#imageLiteral(resourceName: "rice"),#imageLiteral(resourceName: "burger"),#imageLiteral(resourceName: "watermelon1"),#imageLiteral(resourceName: "pizza1"),#imageLiteral(resourceName: "coconut"),#imageLiteral(resourceName: "pasta"),#imageLiteral(resourceName: "chicken")]
 let intakeLabel = ["Rice", "Burger","Watermelon","Pizza","Coconut","Spagetti Bolognaise","Chicken"]
 let intakeCalories = ["87KJ","300KJ","70KJ","280KJ","20KJ","45KJ","78KJ"]

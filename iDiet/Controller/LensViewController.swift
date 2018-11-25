@@ -234,6 +234,8 @@ extension LensViewController: FoodPopupDelegate {
 
 extension LensViewController: LensDelegate {
     func foodItem(title: String, calories: String, fat: String, sugar: String) {
+        playSound("foundFood", withExtension: "wav")
+        impact.impactOccurred()
         foodLauncher.showMenu(title: title, calories: calories, fat: fat, sugar: sugar)
         foodLauncher.delegate = self
         available = false
@@ -247,7 +249,7 @@ extension LensViewController: LensDelegate {
         
         if title == self.allergicTo {
             foodLauncher.handleDismissView()
-            available = true
+            available = false
             let title = "Warning"
             let message = "It seems you are allergic to the item detected"
             
@@ -256,6 +258,7 @@ extension LensViewController: LensDelegate {
             
             // Create buttons
             let buttonOne = CancelButton(title: "Thank you") {
+                available = true
             }
             popup.addButtons([buttonOne])
             
