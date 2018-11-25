@@ -12,7 +12,6 @@ import Vision
 import Firebase
 
 var FoodName: [String] = [String]()
-
 var captureRef: CaptureViewController?
 
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -86,7 +85,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             print("this: \(singleResult)")
             DispatchQueue.main.async {
                 var i = 0
-                for food in self.FoodName {
+                for food in FoodName {
                     if singleResult == food {
 //                        self.previewView.isHidden = false
 //                        self.itemTitle.text = Food
@@ -114,7 +113,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         ref.observe(.childAdded, with: { snapshot in
             
             let value = snapshot.value as? NSDictionary
-            self.FoodName.append(value?["Name"] as! String)
+            FoodName.append(value?["Name"] as! String)
             self.FoodCalories.append(value?["Calories"] as! String)
             print("here")
         })
