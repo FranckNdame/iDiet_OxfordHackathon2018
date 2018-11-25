@@ -104,6 +104,12 @@ class ProfileViewController: UIViewController {
             let bmiValue = bmi(weight: weight, height: height)
             self.bmiLabel.text = "\(bmiValue)"
             self.ObserveCurrent(target: target)
+            
+                guard let url = URL(string: user.image!) else {return}
+                let resource = ImageResource(downloadURL: url, cacheKey: user.uid)
+                self.mainUserImageView.kf.setImage(with: resource)
+                self.roundedUserImageView.kf.setImage(with: resource)
+
         }
     }
     
