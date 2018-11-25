@@ -20,21 +20,17 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Skeleton
     var scrollView: UIScrollView = {
        let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.contentSize.height = 2000
         sv.isScrollEnabled = true
         sv.backgroundColor = .clear
         return sv
     }()
     
-    let innerView: UIView = {
-       let iv = UIView()
-        iv.backgroundColor = .white
-        return iv
-    }()
-    
     
     let imageView: UIImageView = {
        let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "user1")
+        iv.image = #imageLiteral(resourceName: "user")
         iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
         iv.isUserInteractionEnabled = true
         return iv
@@ -108,50 +104,67 @@ class RegisterViewController: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(scrollView)
         scrollView.anchor(top: self.view.topAnchor, left: self.view.leftAnchor, right: self.view.rightAnchor, bottom: self.view.bottomAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 0)
         
-        self.view.addSubview(innerView)
-        innerView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, right: scrollView.rightAnchor, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 0, height: 1000)
-        innerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        innerView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+        scrollView.addSubview(imageView)
+        scrollView.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 64, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
+        scrollView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(imageView)
-        imageView.anchor(top: innerView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
-        imageView.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        scrollView.addSubview(chooseImage)
+        chooseImage.anchor(top: scrollView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
+        chooseImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(chooseImage)
-        chooseImage.anchor(top: innerView.topAnchor, left: nil, right: nil, bottom: nil, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 80, height: 80)
-        chooseImage.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
-        
-        innerView.addSubview(nameTextField)
+        scrollView.addSubview(nameTextField)
         nameTextField.anchor(top: imageView.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        nameTextField.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        nameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(emailTextField)
+        scrollView.addSubview(emailTextField)
         emailTextField.anchor(top: nameTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        emailTextField.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        emailTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(passwordTextField)
+        scrollView.addSubview(passwordTextField)
         passwordTextField.anchor(top: emailTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        passwordTextField.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(heightTextField)
+        scrollView.addSubview(heightTextField)
         heightTextField.anchor(top: passwordTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        heightTextField.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        heightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(weightTextField)
+        scrollView.addSubview(weightTextField)
         weightTextField.anchor(top: heightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        weightTextField.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        weightTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(CalorieTargerTextField)
+        scrollView.addSubview(CalorieTargerTextField)
         CalorieTargerTextField.anchor(top: weightTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        CalorieTargerTextField.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        CalorieTargerTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(RegisterButton)
+        scrollView.addSubview(RegisterButton)
         RegisterButton.anchor(top: CalorieTargerTextField.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        RegisterButton.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        RegisterButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        innerView.addSubview(LoginButton)
+        scrollView.addSubview(LoginButton)
         LoginButton.anchor(top: RegisterButton.bottomAnchor, left: nil, right: nil, bottom: nil, paddingTop: 32, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, width: 200, height: 0)
-        LoginButton.centerXAnchor.constraint(equalTo: innerView.centerXAnchor).isActive = true
+        LoginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        
+        //creating flexible space
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        // creating button
+        let addButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
+        
+        // adding space and button to toolbar
+        keyboardToolbar.setItems([flexibleSpace,addButton], animated: false)
+        nameTextField.inputAccessoryView = keyboardToolbar
+        emailTextField.inputAccessoryView = keyboardToolbar
+        passwordTextField.inputAccessoryView = keyboardToolbar
+        heightTextField.inputAccessoryView = keyboardToolbar
+        weightTextField.inputAccessoryView = keyboardToolbar
+        CalorieTargerTextField.inputAccessoryView = keyboardToolbar
+    }
+    
+    @objc func doneClicked() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
