@@ -80,18 +80,22 @@ class MainViewController: UIViewController {
 extension MainViewController {
     @IBAction func handleChatIconTap(_ sender: UITapGestureRecognizer) {
         print("red")
-        scrollViewController.setController(to: profileViewController, animated: true)
+        scrollViewController.setController(to: lensViewController, animated: true)
+        
         
     }
     
     @IBAction func handleDiscoverIconTap(_ sender: UITapGestureRecognizer) {
         print("green")
-        print(intakesViewController)
-        scrollViewController.setController(to: intakesViewController, animated: true)
+//        print(intakesViewController)
+        scrollViewController.setController(to: profileViewController, animated: true)
+        
+        
     }
     
     @IBAction func handleCameraButton(_ sender: UITapGestureRecognizer) {
-        scrollViewController.setController(to: lensViewController, animated: true)
+//        scrollViewController.setController(to: lensViewController, animated: true)
+        scrollViewController.setController(to: intakesViewController, animated: true)
     }
 
 }
