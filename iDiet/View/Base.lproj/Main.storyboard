@@ -469,13 +469,13 @@
                                                                 <constraint firstAttribute="height" constant="124" id="M9f-QB-cfB"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Sample Text Recepie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Dt-D1-JJR">
-                                                            <rect key="frame" x="16" y="132" width="196" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Smoked salmon &amp; avocado sushi recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Dt-D1-JJR">
+                                                            <rect key="frame" x="16" y="132" width="306.33333333333331" height="22"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending today, we've got the fame bla bla recepie made straight from venise" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebY-5t-Zqf">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy making sushi at home? This simple recipe makes 32 healthy little bites, ideal for lunch or served as canapés" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebY-5t-Zqf">
                                                             <rect key="frame" x="16" y="162" width="327" height="26.333333333333343"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -661,8 +661,8 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1457KJ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-aH-wdr">
-                                                                        <rect key="frame" x="25" y="52.666666666666686" width="50" height="18"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                        <rect key="frame" x="26.333333333333343" y="55.666666666666686" width="47" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -676,7 +676,7 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="gK7-d1-FcF" secondAttribute="height" multiplier="1:1" id="78w-Jh-gug"/>
-                                                                    <constraint firstItem="c4t-aH-wdr" firstAttribute="top" secondItem="Fjg-J8-CZa" secondAttribute="bottom" constant="2" id="7ZF-to-MlU"/>
+                                                                    <constraint firstItem="c4t-aH-wdr" firstAttribute="top" secondItem="Fjg-J8-CZa" secondAttribute="bottom" constant="5" id="7ZF-to-MlU"/>
                                                                     <constraint firstItem="Fjg-J8-CZa" firstAttribute="centerX" secondItem="gK7-d1-FcF" secondAttribute="centerX" id="OsQ-cN-G9a"/>
                                                                     <constraint firstItem="n5z-x0-JmM" firstAttribute="centerX" secondItem="gK7-d1-FcF" secondAttribute="centerX" id="PYs-SQ-p3W"/>
                                                                     <constraint firstItem="Fjg-J8-CZa" firstAttribute="centerY" secondItem="gK7-d1-FcF" secondAttribute="centerY" id="dTO-t1-Enn"/>
@@ -1184,15 +1184,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hby-Fk-Bf9">
-                                <rect key="frame" x="319" y="4" width="40" height="40"/>
+                                <rect key="frame" x="319" y="4" width="40" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="rdf-m2-kg8"/>
+                                    <constraint firstAttribute="height" constant="20" id="rdf-m2-kg8"/>
                                     <constraint firstAttribute="width" constant="40" id="zKj-FI-p0N"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="settings"/>
+                                <state key="normal" title="•••"/>
                                 <connections>
                                     <action selector="handleSettings:" destination="Fkh-wv-k8C" eventType="touchUpInside" id="lyj-2d-A8f"/>
                                 </connections>
@@ -1204,9 +1204,9 @@
                                     <constraint firstAttribute="height" constant="30" id="OEH-1f-qCc"/>
                                     <constraint firstAttribute="width" constant="65" id="yMk-Ht-cbk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <state key="normal" title="Logout">
-                                    <color key="titleColor" red="0.36586081148540039" green="0.60628634280906291" blue="0.83496589467005078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.70588235290000001" green="0.1450980392" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1303,7 +1303,6 @@
         <image name="camera-shutter-gray" width="409.60000610351562" height="409.60000610351562"/>
         <image name="monthly" width="409.60000610351562" height="409.60000610351562"/>
         <image name="pasta" width="1280" height="853"/>
-        <image name="settings" width="204.80000305175781" height="204.80000305175781"/>
         <image name="steak-gray" width="409.60000610351562" height="409.60000610351562"/>
         <image name="steak-white" width="409.60000610351562" height="409.60000610351562"/>
         <image name="sushiy" width="1920" height="1280"/>
